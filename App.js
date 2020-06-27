@@ -5,7 +5,8 @@ import { StyleSheet, Text, View } from "react-native";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Carson with a n is better</Text>
+      <Text>Carson with a a is better</Text>
+      <Text>Carson with a i is better</Text>
     </View>
   );
 }
