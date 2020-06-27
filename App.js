@@ -9,7 +9,12 @@ export default function App() {
         <Text>Carson with a y is better. YESSSSSSS. She is.</Text>
         <Text>I need a biddie</Text>
         <Text>Hello</Text>
+        <Text>Hi</Text>
+        <Text>Newport Blows</Text>
+        <Text>Norcal is elite</Text>
       </View>
+      <Text>Carson with a a is better</Text>
+      <Text>Carson with a i is better</Text>
     </View>
   );
 }
