@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from "react-native";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Im mad at yazzy</Text>
+      <Text>Carson with a y is better</Text>
     </View>
   );
 }
