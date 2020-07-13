@@ -5,9 +5,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet, Text, View, Button } from "react-native";
 
-import LoginScreen from "./screens/LoginScreen";
-import SignUpScreen from "./screens/SignUpScreen";
-import UserAuthScreen from "./screens/UserAuthScreen";
+import LoginScreen from "./screens/UserAuthentication/LoginScreen";
+import SignUpScreen from "./screens/UserAuthentication/SignUpScreen";
+import UserAuthScreen from "./screens/UserAuthentication/UserAuthScreen";
 import MainNav from "./navigation/MainNav";
 
 const Stack = createStackNavigator();
