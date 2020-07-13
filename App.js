@@ -1,21 +1,39 @@
+import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { StyleSheet, Text, View, Button } from "react-native";
+
+import LoginScreen from "./pages/Login";
+import SignUpScreen from "./pages/SignUp";
+import UserAuthScreen from "./pages/UserAuthentication";
+import HomeScreen from "./pages/Home";
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <View>
-        <Text>Carson with a y is better. YESSSSSSS. She is.</Text>
-        <Text>I need a biddie</Text>
-        <Text>Hello</Text>
-        <Text>Hi</Text>
-        <Text>Newport Blows</Text>
-        <Text>Norcal is elite</Text>
-      </View>
-      <Text>Carson with a a is better</Text>
-      <Text>Carson with a i is better</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="UserAuth"
+          component={UserAuthScreen}
+          options={{ title: "Hatch" }}
+        />
+        <Stack.Screen
+          name="SignUp"
+          component={SignUpScreen}
+          options={{ title: "Sign Up", headerBackTitle: "Back" }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{ title: "Login", headerBackTitle: "Back" }}
+        />
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
