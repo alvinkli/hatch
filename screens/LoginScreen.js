@@ -3,7 +3,7 @@ import { View, Text, Button } from "react-native";
 
 const LoginScreen = (props) => {
   return (
-    <Button title="Login" onPress={() => props.navigation.replace("Home")} />
+    <Button title="Login" onPress={() => props.navigation.replace("MainNav")} />
   );
 };
 

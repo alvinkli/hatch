@@ -5,10 +5,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { StyleSheet, Text, View, Button } from "react-native";
 
-import LoginScreen from "./pages/LoginScreen";
-import SignUpScreen from "./pages/SignUpScreen";
-import UserAuthScreen from "./pages/UserAuthScreen";
-import HomeScreen from "./pages/Home";
+import LoginScreen from "./screens/LoginScreen";
+import SignUpScreen from "./screens/SignUpScreen";
+import UserAuthScreen from "./screens/UserAuthScreen";
+import MainNav from "./navigation/MainNav";
 
 const Stack = createStackNavigator();
 
@@ -31,7 +31,7 @@ export default function App() {
           component={LoginScreen}
           options={{ title: "Login", headerBackTitle: "Back" }}
         />
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="MainNav" component={MainNav} />
       </Stack.Navigator>
     </NavigationContainer>
   );

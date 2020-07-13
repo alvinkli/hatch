@@ -4,13 +4,13 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 
-import RestaurantsScreen from "./Restaurants/Restaurants";
-import OrdersScreen from "./Orders/Orders";
-import AccountScreen from "./Account/Account";
+import RestaurantsNav from "./RestaurantsNav";
+import OrdersNav from "./OrdersNav";
+import AccountNav from "./AccountNav";
 
 const Tab = createBottomTabNavigator();
 
-const HomeScreen = (props) => {
+const MainNav = (props) => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -27,11 +27,11 @@ const HomeScreen = (props) => {
         },
       })}
     >
-      <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
-      <Tab.Screen name="Orders" component={OrdersScreen} />
-      <Tab.Screen name="Account" component={AccountScreen} />
+      <Tab.Screen name="RestaurantsNav" component={RestaurantsNav} />
+      <Tab.Screen name="OrdersNav" component={OrdersNav} />
+      <Tab.Screen name="AccountNav" component={AccountNav} />
     </Tab.Navigator>
   );
 };
 
-export default HomeScreen;
+export default MainNav;
