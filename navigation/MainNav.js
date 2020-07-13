@@ -16,11 +16,11 @@ const MainNav = (props) => {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
-          if (route.name === "Restaurants") {
+          if (route.name === "RestaurantsNav") {
             iconName = "ios-restaurant";
-          } else if (route.name === "Orders") {
+          } else if (route.name === "OrdersNav") {
             iconName = "ios-list";
-          } else if (route.name === "Account") {
+          } else if (route.name === "AccountNav") {
             iconName = "ios-person";
           }
           return <Ionicons name={iconName} size={size} color={color} />;
