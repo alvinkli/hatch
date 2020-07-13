@@ -1,4 +1,5 @@
 import React from "react";
+
 import { createStackNavigator } from "@react-navigation/stack";
 
 import AccountDetailsScreen from "../screens/Account/AccountDetailsScreen";
@@ -8,41 +9,41 @@ import ManageReviewsScreen from "../screens/Account/ManageReviewsScreen";
 import NotificationsScreen from "../screens/Account/NotificationsScreen";
 import PaymentInfoScreen from "../screens/Account/PaymentInfoScreen";
 
-const Stack = createStackNavigator();
+const AccountStack = createStackNavigator();
 
 export default function OrdersNav() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen
+    <AccountStack.Navigator>
+      <AccountStack.Screen
+        name="AccountOptionsScreen"
+        component={AccountOptionsScreen}
+        options={{ title: "Account Options" }}
+      />
+      <AccountStack.Screen
         name="AccountDetailsScreen"
         component={AccountDetailsScreen}
         options={{ title: "Account" }}
       />
-      <Stack.Screen
-        name="AccountOptionsScreen"
-        component={AccountOptionsScreen}
-        options={{ title: "Accoungt Options" }}
-      />
-      <Stack.Screen
+      <AccountStack.Screen
         name="HelpScreen"
         component={HelpScreen}
         options={{ title: "Help" }}
       />
-      <Stack.Screen
+      <AccountStack.Screen
         name="ManageReviewsScreen"
         component={ManageReviewsScreen}
         options={{ title: "Manage Reviews" }}
       />
-      <Stack.Screen
+      <AccountStack.Screen
         name="NotificationsScreen"
         component={NotificationsScreen}
         options={{ title: "Notifications" }}
       />
-      <Stack.Screen
+      <AccountStack.Screen
         name="PaymentInfoScreen"
         component={PaymentInfoScreen}
         options={{ title: "Payment Info" }}
       />
-    </Stack.Navigator>
+    </AccountStack.Navigator>
   );
 }
