@@ -6,11 +6,11 @@ const UserAuthScreen = (props) => {
     <View>
       <Button
         title="Sign Up"
-        onPress={() => props.navigation.navigate("SignUp")}
+        onPress={() => props.navigation.navigate("SignUpScreen")}
       />
       <Button
         title="Login"
-        onPress={() => props.navigation.navigate("Login")}
+        onPress={() => props.navigation.navigate("LoginScreen")}
       />
     </View>
   );
