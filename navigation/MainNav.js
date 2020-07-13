@@ -27,9 +27,21 @@ const MainNav = (props) => {
         },
       })}
     >
-      <Tab.Screen name="RestaurantsNav" component={RestaurantsNav} />
-      <Tab.Screen name="OrdersNav" component={OrdersNav} />
-      <Tab.Screen name="AccountNav" component={AccountNav} />
+      <Tab.Screen
+        name="RestaurantsNav"
+        component={RestaurantsNav}
+        options={{ title: "Restaurants" }}
+      />
+      <Tab.Screen
+        name="OrdersNav"
+        component={OrdersNav}
+        options={{ title: "Orders" }}
+      />
+      <Tab.Screen
+        name="AccountNav"
+        component={AccountNav}
+        options={{ title: "Account" }}
+      />
     </Tab.Navigator>
   );
 };
