@@ -1,27 +1,31 @@
 import React from "react";
+
 import { createStackNavigator } from "@react-navigation/stack";
 
-const Stack = createStackNavigator();
+import EditOrderScreen from "../screens/Orders/EditOrderScreen";
+import OrdersListScreen from "../screens/Orders/OrdersListScreen";
+import ViewOrderScreen from "../screens/Orders/ViewOrderScreen";
+
+const OrdersStack = createStackNavigator();
 
 export default function OrdersNav() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="UserAuthScreen"
-        component={UserAuthScreen}
-        options={{ title: "Hatch" }}
+    <OrdersStack.Navigator>
+      <OrdersStack.Screen
+        name="OrdersListScreen"
+        component={OrdersListScreen}
+        options={{ title: "Orders" }}
       />
-      <Stack.Screen
-        name="SignUpScreen"
-        component={SignUpScreen}
-        options={{ title: "Sign Up", headerBackTitle: "Back" }}
+      <OrdersStack.Screen
+        name="EditOrderScreen"
+        component={EditOrderScreen}
+        options={{ title: "Edit Order" }}
       />
-      <Stack.Screen
-        name="LoginScreen"
-        component={LoginScreen}
-        options={{ title: "Login", headerBackTitle: "Back" }}
+      <OrdersStack.Screen
+        name="ViewOrderScreen"
+        component={ViewOrderScreen}
+        options={{ title: "Order Name" }}
       />
-      <Stack.Screen name="MainNav" component={MainNav} />
-    </Stack.Navigator>
+    </OrdersStack.Navigator>
   );
 }

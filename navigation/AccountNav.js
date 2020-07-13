@@ -11,7 +11,7 @@ import PaymentInfoScreen from "../screens/Account/PaymentInfoScreen";
 
 const AccountStack = createStackNavigator();
 
-export default function OrdersNav() {
+export default function AccountNav() {
   return (
     <AccountStack.Navigator>
       <AccountStack.Screen

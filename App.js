@@ -9,6 +9,7 @@ import LoginScreen from "./screens/UserAuthentication/LoginScreen";
 import SignUpScreen from "./screens/UserAuthentication/SignUpScreen";
 import UserAuthScreen from "./screens/UserAuthentication/UserAuthScreen";
 import MainNav from "./navigation/MainNav";
+import Colors from "./constants/Colors";
 
 const Stack = createStackNavigator();
 
@@ -19,7 +20,16 @@ export default function App() {
         <Stack.Screen
           name="UserAuthScreen"
           component={UserAuthScreen}
-          options={{ title: "Hatch" }}
+          options={{
+            title: "Hatch",
+            headerStyle: {
+              backgroundColor: Colors.primaryColor,
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
         />
         <Stack.Screen
           name="SignUpScreen"
