@@ -12,6 +12,7 @@ import UserAuthNav from "./navigation/UserAuthNav";
 const fetchFonts = () => {
   return Font.loadAsync({
     "Montserrat-Regular": require("./assets/fonts/Montserrat-Regular.ttf"),
+    "Montserrat-Bold": require("./assets/fonts/Montserrat-SemiBold.ttf"),
   });
 };
 
@@ -19,7 +20,7 @@ const Stack = createStackNavigator();
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
-  const [isloggedIn, setIsLoggedIn] = useState(false);
+  const [isloggedIn, setIsLoggedIn] = useState(true);
 
   const login = () => {
     setIsLoggedIn(true);
@@ -30,6 +31,7 @@ export default function App() {
       <AppLoading startAsync={fetchFonts} onFinish={() => setLoaded(true)} />
     );
   }
+
   if (isloggedIn) {
     return (
       <NavigationContainer>

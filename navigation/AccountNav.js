@@ -8,16 +8,27 @@ import HelpScreen from "../screens/Account/HelpScreen";
 import ManageReviewsScreen from "../screens/Account/ManageReviewsScreen";
 import NotificationsScreen from "../screens/Account/NotificationsScreen";
 import PaymentInfoScreen from "../screens/Account/PaymentInfoScreen";
+import Colors from "../constants/Colors";
 
 const AccountStack = createStackNavigator();
 
 export default function AccountNav() {
   return (
-    <AccountStack.Navigator>
+    <AccountStack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: Colors.primary,
+        },
+        headerTintColor: "#fff",
+        headerTitleStyle: {
+          fontFamily: "Montserrat-Bold",
+        },
+      }}
+    >
       <AccountStack.Screen
         name="AccountOptionsScreen"
         component={AccountOptionsScreen}
-        options={{ title: "Account Options" }}
+        options={{ title: "Account" }}
       />
       <AccountStack.Screen
         name="AccountDetailsScreen"

@@ -7,16 +7,18 @@ import { Ionicons } from "@expo/vector-icons";
 const ArrowButton = (props) => {
   const styles = StyleSheet.create({
     button: {
-      height: 52,
+      height: 64,
       paddingStart: 24,
       paddingEnd: 24,
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "space-between",
+      borderBottomWidth: 1,
+      borderBottomColor: Colors.divider,
     },
     arrow: {
       fontSize: 20,
-      color: props.accent ? Colors.primaryColor : Colors.text,
+      color: props.accent ? Colors.primary : Colors.text,
     },
   });
   return (
