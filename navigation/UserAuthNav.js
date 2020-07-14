@@ -29,7 +29,11 @@ export default function UserAuthNav() {
       <UserAuthStack.Screen
         name="SignUpScreen"
         component={SignUpScreen}
-        options={{ title: "Sign Up", headerBackImage: { CloseButton } }}
+        options={{
+          title: "Sign Up",
+          headerBackImage: { CloseButton },
+          headerShown: false,
+        }}
       />
       <UserAuthStack.Screen
         name="LoginScreen"
