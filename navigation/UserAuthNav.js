@@ -33,11 +33,13 @@ export default function UserAuthNav(props) {
           title: "Sign Up",
           headerShown: false,
         }}
+        initialParams={{ login: props.login }}
       />
       <UserAuthStack.Screen
         name="LoginScreen"
         component={LoginScreen}
         options={{ title: "Login", headerShown: false }}
+        initialParams={{ login: props.login }}
       />
     </UserAuthStack.Navigator>
   );
