@@ -1,6 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import Colors from "../constants/Colors";
+import CloseButton from "../components/CloseButton";
 
 import LoginScreen from "../screens/UserAuthentication/LoginScreen";
 import SignUpScreen from "../screens/UserAuthentication/SignUpScreen";
@@ -28,12 +29,12 @@ export default function UserAuthNav() {
       <UserAuthStack.Screen
         name="SignUpScreen"
         component={SignUpScreen}
-        options={{ title: "Sign Up", headerBackTitle: "Back" }}
+        options={{ title: "Sign Up", headerBackImage: { CloseButton } }}
       />
       <UserAuthStack.Screen
         name="LoginScreen"
         component={LoginScreen}
-        options={{ title: "Login", headerBackTitle: "Back" }}
+        options={{ title: "Login", headerBackImage: { CloseButton } }}
       />
     </UserAuthStack.Navigator>
   );
