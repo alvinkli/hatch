@@ -9,7 +9,7 @@ import UserAuthScreen from "../screens/UserAuthentication/UserAuthScreen";
 
 const UserAuthStack = createStackNavigator();
 
-export default function UserAuthNav() {
+export default function UserAuthNav(props) {
   return (
     <UserAuthStack.Navigator mode="modal">
       <UserAuthStack.Screen
@@ -31,14 +31,13 @@ export default function UserAuthNav() {
         component={SignUpScreen}
         options={{
           title: "Sign Up",
-          headerBackImage: { CloseButton },
           headerShown: false,
         }}
       />
       <UserAuthStack.Screen
         name="LoginScreen"
         component={LoginScreen}
-        options={{ title: "Login", headerBackImage: { CloseButton } }}
+        options={{ title: "Login", headerShown: false }}
       />
     </UserAuthStack.Navigator>
   );
