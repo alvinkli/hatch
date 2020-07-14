@@ -1,9 +1,13 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
+import { View, Text, Button, SafeAreaView } from "react-native";
 
 const LoginScreen = (props) => {
   const { login } = props.route.params;
-  return <Button title="Login" onPress={login} />;
+  return (
+    <SafeAreaView>
+      <Button title="Login" onPress={login} />
+    </SafeAreaView>
+  );
 };
 
 export default LoginScreen;

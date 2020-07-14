@@ -16,8 +16,6 @@ const fetchFonts = () => {
   });
 };
 
-const Stack = createStackNavigator();
-
 export default function App() {
   const [loaded, setLoaded] = useState(false);
   const [isloggedIn, setIsLoggedIn] = useState(false);
