@@ -14,17 +14,7 @@ const AccountStack = createStackNavigator();
 
 export default function AccountNav() {
   return (
-    <AccountStack.Navigator
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: Colors.primary,
-        },
-        headerTintColor: "#fff",
-        headerTitleStyle: {
-          fontFamily: "Montserrat-Bold",
-        },
-      }}
-    >
+    <AccountStack.Navigator>
       <AccountStack.Screen
         name="AccountOptionsScreen"
         component={AccountOptionsScreen}
