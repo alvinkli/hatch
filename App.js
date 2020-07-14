@@ -30,7 +30,7 @@ export default function App() {
     colors: {
       primary: Colors.primary,
       background: "#FFFFFF",
-      card: "#FFFFFF",
+      card: "#DDDDDD",
       text: Colors.text,
       border: Colors.divider,
     },
