@@ -7,10 +7,11 @@ import { StyleSheet, Text, View, Button } from "react-native";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
 
-import LoginScreen from "./screens/UserAuthentication/LoginScreen";
-import SignUpScreen from "./screens/UserAuthentication/SignUpScreen";
+// import LoginScreen from "./screens/UserAuthentication/LoginScreen";
+// import SignUpScreen from "./screens/UserAuthentication/SignUpScreen";
 import UserAuthScreen from "./screens/UserAuthentication/UserAuthScreen";
 import MainNav from "./navigation/MainNav";
+import UserAuthNav from "./navigation/UserAuthNav";
 import Colors from "./constants/Colors";
 
 const fetchFonts = () => {
@@ -28,33 +29,11 @@ export default function App() {
       <AppLoading startAsync={fetchFonts} onFinish={() => setLoaded(true)} />
     );
   }
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
-          name="UserAuthScreen"
-          component={UserAuthScreen}
-          options={{
-            title: "Hatch",
-            headerStyle: {
-              backgroundColor: Colors.primaryColor,
-            },
-            headerTintColor: "#fff",
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
-          }}
-        />
-        <Stack.Screen
-          name="SignUpScreen"
-          component={SignUpScreen}
-          options={{ title: "Sign Up", headerBackTitle: "Back" }}
-        />
-        <Stack.Screen
-          name="LoginScreen"
-          component={LoginScreen}
-          options={{ title: "Login", headerBackTitle: "Back" }}
-        />
+        <Stack.Screen name="UserAuthNav" component={UserAuthNav} />
         <Stack.Screen name="MainNav" component={MainNav} />
       </Stack.Navigator>
     </NavigationContainer>
