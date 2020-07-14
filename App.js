@@ -20,7 +20,7 @@ const Stack = createStackNavigator();
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
-  const [isloggedIn, setIsLoggedIn] = useState(true);
+  const [isloggedIn, setIsLoggedIn] = useState(false);
 
   const login = () => {
     setIsLoggedIn(true);
