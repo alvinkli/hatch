@@ -5,7 +5,7 @@ import Colors from "../constants/Colors";
 const AppText = (props) => {
   const styles = StyleSheet.create({
     text: {
-      color: Colors.text,
+      color: props.accent ? Colors.primaryColor : Colors.text,
       fontSize: 16,
       fontFamily: "Montserrat-Regular",
     },
