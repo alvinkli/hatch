@@ -10,11 +10,6 @@
             "StackName": "amplify-hatch-dev-174847",
             "StackId": "arn:aws:cloudformation:us-west-2:644448147637:stack/amplify-hatch-dev-174847/c9221cd0-c56b-11ea-8066-0ab88639bbc6",
             "AmplifyAppId": "d2ujb3yo8b28vh"
-        },
-        "categories": {
-            "auth": {
-                "hatch57306a43": {}
-            }
         }
     }
 }
