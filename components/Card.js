@@ -11,7 +11,7 @@ const Card = (props) => {
   return (
     <TouchableWithoutFeedback onPress={props.onSelect}>
       <View style={styles.container}>
-        <Image style={styles.photo} source={require("../assets/burger.jpeg")} />
+        <Image style={styles.photo} source={{ uri: props.image }} />
         <AppText
           style={styles.text}
           accent={false}

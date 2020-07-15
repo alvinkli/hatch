@@ -9,7 +9,7 @@ const BrowseRestaurantsScreen = (props) => {
         onSelect={() => props.navigation.navigate("RestaurantMenuScreen")}
         restaurantName="Burger Place"
         restaurantDistance="0.5"
-        restaurantImage="../assets/burger.jpeg"
+        image="../assets/burger.jpeg"
       />
     );
   };
