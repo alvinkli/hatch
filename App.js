@@ -28,10 +28,10 @@ export default function App() {
   const MyTheme = {
     dark: false,
     colors: {
-      primary: "#FFFFFF",
+      primary: Colors.primary,
       background: "#FFFFFF",
-      card: Colors.primary,
-      text: "#FFFFFF",
+      card: "#FFFFFF",
+      text: Colors.primary,
       border: Colors.primary,
     },
   };
