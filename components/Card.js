@@ -11,7 +11,7 @@ const Card = (props) => {
   return (
     <TouchableWithoutFeedback onPress={props.onSelect}>
       <View style={styles.container}>
-        <Image style={styles.photo} source={{ uri: props.image }} />
+        <Image style={styles.photo} source={props.image} />
         <AppText
           style={styles.text}
           accent={false}
@@ -23,10 +23,10 @@ const Card = (props) => {
 };
 
 styles = StyleSheet.create({
-  photo: { borderRadius: 15, height: "25%", width: "60%" },
+  photo: { borderRadius: 15, height: "100%", margin: 7 },
   text: { margin: 5 },
   container: {
-    flex: 1,
+    height: "50%",
     shadowColor: "black",
     shadowOpacity: 0.3,
     shadowOffset: { widght: 0, height: 2 },

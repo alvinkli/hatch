@@ -7,17 +7,17 @@ const BrowseRestaurantsScreen = (props) => {
     {
       name: "BurgerPlace",
       distance: "0.5",
-      image: "../assets/burger.jpeg",
+      image: require("../../assets/burger.jpeg"),
     },
     {
       name: "SandwichPlace",
       distance: "0.8",
-      image: "../assets/burger.jpeg",
+      image: require("../../assets/burger.jpeg"),
     },
     {
       name: "PastaPlace",
       distance: "0.3",
-      image: "../assets/burger.jpeg",
+      image: require("../../assets/burger.jpeg"),
     },
   ];
 
@@ -37,6 +37,7 @@ const BrowseRestaurantsScreen = (props) => {
       <FlatList
         data={restaurantData}
         horizontal={true}
+        showsHorizontalScrollIndicator={false}
         renderItem={(item) => renderRestaurantCards(item)}
       />
     </SafeAreaView>
