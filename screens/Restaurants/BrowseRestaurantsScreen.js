@@ -21,14 +21,13 @@ const BrowseRestaurantsScreen = (props) => {
     },
   ];
 
-  const renderRestaurantCards = (item) => {
-    console.log(item);
+  const renderRestaurantCards = (itemData) => {
     return (
       <Card
         onSelect={() => props.navigation.navigate("RestaurantMenuScreen")}
-        restaurantName={item.name}
-        restaurantDistance={item.distance}
-        image={item.image}
+        restaurantName={itemData.item.name}
+        restaurantDistance={itemData.item.distance}
+        image={itemData.item.image}
       />
     );
   };
