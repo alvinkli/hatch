@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, Button } from "react-native";
 
-const RestaurantMenuScreen = (props) => {
+const CheckOutScreen = (props) => {
   return <Text>Restaurants</Text>;
 };
 
-export default RestaurantMenuScreen;
+export default CheckOutScreen;
