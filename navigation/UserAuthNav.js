@@ -16,21 +16,13 @@ export default function UserAuthNav(props) {
         name="UserAuthScreen"
         component={UserAuthScreen}
         options={{
-          title: "Hatch",
-          headerStyle: {
-            backgroundColor: Colors.primaryColor,
-          },
-          headerTintColor: "#fff",
-          headerTitleStyle: {
-            fontWeight: "bold",
-          },
+          headerShown: false,
         }}
       />
       <UserAuthStack.Screen
         name="SignUpScreen"
         component={SignUpScreen}
         options={{
-          title: "Sign Up",
           headerShown: false,
         }}
         initialParams={{ login: props.login }}
@@ -38,7 +30,7 @@ export default function UserAuthNav(props) {
       <UserAuthStack.Screen
         name="LoginScreen"
         component={LoginScreen}
-        options={{ title: "Login", headerShown: false }}
+        options={{ headerShown: false }}
         initialParams={{ login: props.login }}
       />
     </UserAuthStack.Navigator>
