@@ -10,6 +10,12 @@ import MainNav from "./navigation/MainNav";
 import UserAuthNav from "./navigation/UserAuthNav";
 import Colors from "./constants/Colors";
 
+import { withAuthenticator } from "aws-amplify-react-native";
+
+import Amplify from "@aws-amplify/core";
+import config from "./aws-exports";
+Amplify.configure(config);
+
 const fetchFonts = () => {
   return Font.loadAsync({
     "Montserrat-Regular": require("./assets/fonts/Montserrat-Regular.ttf"),
@@ -17,13 +23,8 @@ const fetchFonts = () => {
   });
 };
 
-export default function App() {
+function App() {
   const [loaded, setLoaded] = useState(false);
-  const [isloggedIn, setIsLoggedIn] = useState(false);
-
-  const login = () => {
-    setIsLoggedIn(true);
-  };
 
   const MyTheme = {
     dark: false,
@@ -40,18 +41,11 @@ export default function App() {
       <AppLoading startAsync={fetchFonts} onFinish={() => setLoaded(true)} />
     );
   }
-
-  if (isloggedIn) {
-    return (
-      <NavigationContainer theme={MyTheme}>
-        <MainNav />
-      </NavigationContainer>
-    );
-  } else {
-    return (
-      <NavigationContainer theme={MyTheme}>
-        <UserAuthNav login={login} />
-      </NavigationContainer>
-    );
-  }
+  return (
+    <NavigationContainer theme={MyTheme}>
+      <MainNav />
+    </NavigationContainer>
+  );
 }
+
+export default withAuthenticator(App, { includeGreetings: true });
