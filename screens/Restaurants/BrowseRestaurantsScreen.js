@@ -1,8 +1,24 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
+import { FlatList } from "react-native";
+import Card from "../../components/Card";
 
 const BrowseRestaurantsScreen = (props) => {
-  return <Text>Restaurants</Text>;
+  const renderRestaurantCards = (item) => {
+    return (
+      <Card
+        onSelect={() => props.navigation.navigate("RestaurantMenuScreen")}
+        restaurantName="Burger Place"
+        restaurantDistance="0.5"
+        restaurantImage="../assets/burger.jpeg"
+      />
+    );
+  };
+  return (
+    <FlatList
+      horizontal={true}
+      renderItem={(item) => renderRestaurantCards(item)}
+    />
+  );
 };
 
 export default BrowseRestaurantsScreen;
