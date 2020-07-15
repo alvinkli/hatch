@@ -12,7 +12,7 @@ const BrowseRestaurantsScreen = (props) => {
     {
       name: "SandwichPlace",
       distance: "0.8",
-      image: require("../../assets/burger.jpeg"),
+      image: require("../../assets/pasta.jpg"),
     },
     {
       name: "PastaPlace",

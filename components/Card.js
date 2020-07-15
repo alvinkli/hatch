@@ -23,14 +23,16 @@ const Card = (props) => {
 };
 
 styles = StyleSheet.create({
-  photo: { borderRadius: 15, height: "100%", margin: 7 },
-  text: { margin: 5 },
+  photo: { borderRadius: 15, height: "95%", width: 300 },
+  text: { marginTop: 10 },
   container: {
+    margin: 6,
     height: "50%",
     shadowColor: "black",
     shadowOpacity: 0.3,
     shadowOffset: { widght: 0, height: 2 },
     shadowRadius: 2,
+    textAlign: "left",
   },
 });
 
