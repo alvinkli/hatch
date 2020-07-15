@@ -8,6 +8,7 @@ import { AppLoading } from "expo";
 
 import MainNav from "./navigation/MainNav";
 import UserAuthNav from "./navigation/UserAuthNav";
+import Colors from "./constants/Colors";
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -24,6 +25,16 @@ export default function App() {
     setIsLoggedIn(true);
   };
 
+  const MyTheme = {
+    dark: false,
+    colors: {
+      primary: Colors.primary,
+      background: "#FFFFFF",
+      card: "#FFFFFF",
+      text: Colors.text,
+      border: Colors.divider,
+    },
+  };
   if (!loaded) {
     return (
       <AppLoading startAsync={fetchFonts} onFinish={() => setLoaded(true)} />
@@ -32,13 +43,13 @@ export default function App() {
 
   if (isloggedIn) {
     return (
-      <NavigationContainer>
+      <NavigationContainer theme={MyTheme}>
         <MainNav />
       </NavigationContainer>
     );
   } else {
     return (
-      <NavigationContainer>
+      <NavigationContainer theme={MyTheme}>
         <UserAuthNav login={login} />
       </NavigationContainer>
     );
