@@ -1,6 +1,6 @@
 export default {
-  primary: "#C34B5E",
+  primary: "#EA5A5A",
   secondary: "#100050",
-  text: "#000000",
+  text: "#333333",
   divider: "#DDDDDD",
 };

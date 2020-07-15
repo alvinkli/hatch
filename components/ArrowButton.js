@@ -25,7 +25,7 @@ const ArrowButton = (props) => {
     <TouchableHighlight onPress={props.onPress} underlayColor="#DDDDDD">
       <View style={styles.button}>
         <AppText text={props.text} accent={props.accent} />
-        <Ionicons name="md-arrow-forward" style={styles.arrow}></Ionicons>
+        <Ionicons name="ios-arrow-forward" style={styles.arrow}></Ionicons>
       </View>
     </TouchableHighlight>
   );
