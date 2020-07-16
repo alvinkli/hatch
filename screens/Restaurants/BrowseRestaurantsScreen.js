@@ -1,6 +1,8 @@
 import React from "react";
-import { FlatList, SafeAreaView } from "react-native";
+import { StyleSheet, View, FlatList, ScrollView } from "react-native";
 import Card from "../../components/Card";
+import Divider from "../../components/Divider";
+import AppText from "../../components/AppText";
 
 const BrowseRestaurantsScreen = (props) => {
   const restaurantData = [
@@ -33,15 +35,43 @@ const BrowseRestaurantsScreen = (props) => {
   };
 
   return (
-    <SafeAreaView>
+    <ScrollView>
+      <View style={styles.section}>
+        <AppText text="Most Popular" style={styles.header} />
+        <FlatList
+          data={restaurantData}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          renderItem={(item) => renderRestaurantCards(item)}
+          style={styles.horizontalScroll}
+        />
+      </View>
+      <Divider />
+      <AppText text="Nearby" style={styles.header} />
       <FlatList
         data={restaurantData}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         renderItem={(item) => renderRestaurantCards(item)}
+        style={styles.horizontalScroll}
       />
-    </SafeAreaView>
+      <Divider />
+      <AppText text="Newly Added" style={styles.header} />
+      <FlatList
+        data={restaurantData}
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        renderItem={(item) => renderRestaurantCards(item)}
+        style={styles.horizontalScroll}
+      />
+      <Divider />
+    </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  horizontalScroll: { height: 150, marginBottom: 15, marginLeft: 10 },
+  header: { marginBottom: 15, marginTop: 15, marginLeft: 10 },
+});
 
 export default BrowseRestaurantsScreen;
