@@ -1,77 +1,43 @@
 import React from "react";
-import { StyleSheet, View, FlatList, ScrollView } from "react-native";
-import Card from "../../components/Card";
+import { FlatList, View } from "react-native";
+
 import Divider from "../../components/Divider";
-import AppText from "../../components/AppText";
+import RestaurantsSection from "../../components/RestaurantsSection";
+
+import Restaurants from "../../assets/data/restaurants";
 
 const BrowseRestaurantsScreen = (props) => {
-  const restaurantData = [
+  const sectionsData = [
     {
-      name: "BurgerPlace",
-      distance: "0.5",
-      image: require("../../assets/burger.jpeg"),
+      key: "1",
+      name: "Popular",
+      restaurants: Restaurants.popular,
     },
     {
-      name: "SandwichPlace",
-      distance: "0.8",
-      image: require("../../assets/pasta.jpg"),
+      key: "2",
+      name: "Nearby",
+      restaurants: Restaurants.nearby,
     },
     {
-      name: "PastaPlace",
-      distance: "0.3",
-      image: require("../../assets/burger.jpeg"),
+      key: "3",
+      name: "Newly Added",
+      restaurants: Restaurants.newlyAdded,
     },
   ];
 
-  const renderRestaurantCards = (itemData) => {
+  const renderSection = (itemData) => {
     return (
-      <Card
-        onSelect={() => props.navigation.navigate("RestaurantMenuScreen")}
-        restaurantName={itemData.item.name}
-        restaurantDistance={itemData.item.distance}
-        image={itemData.item.image}
-      />
-    );
-  };
-
-  return (
-    <ScrollView>
       <View>
-        <AppText text="Most Popular" style={styles.header} />
-        <FlatList
-          data={restaurantData}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          renderItem={(item) => renderRestaurantCards(item)}
-        />
-      </View>
-      <Divider />
-      <View>
-        <AppText text="Nearby" style={styles.header} />
-        <FlatList
-          data={restaurantData}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          renderItem={(item) => renderRestaurantCards(item)}
-        />
-      </View>
-      <Divider />
-      <View>
-        <AppText text="Newly Added" style={styles.header} />
-        <FlatList
-          data={restaurantData}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          renderItem={(item) => renderRestaurantCards(item)}
+        <RestaurantsSection
+          title={itemData.item.name}
+          restaurants={itemData.item.restaurants}
         />
         <Divider />
       </View>
-    </ScrollView>
-  );
-};
+    );
+  };
 
-const styles = StyleSheet.create({
-  header: { margin: 15 },
-});
+  return <FlatList data={sectionsData} renderItem={renderSection} />;
+};
 
 export default BrowseRestaurantsScreen;
