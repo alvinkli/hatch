@@ -8,7 +8,6 @@ import {
 import AppText from "./AppText";
 
 const Card = (props) => {
-  console.log(props.image);
   return (
     <TouchableWithoutFeedback onPress={props.onSelect}>
       <View style={styles.container}>
