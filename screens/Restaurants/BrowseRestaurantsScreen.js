@@ -36,36 +36,33 @@ const BrowseRestaurantsScreen = (props) => {
 
   return (
     <ScrollView>
-      <View style={styles.section}>
+      <View>
         <AppText text="Most Popular" style={styles.header} />
         <FlatList
           data={restaurantData}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           renderItem={(item) => renderRestaurantCards(item)}
-          style={styles.horizontalScroll}
         />
       </View>
       <Divider />
-      <View style={styles.section}>
+      <View>
         <AppText text="Nearby" style={styles.header} />
         <FlatList
           data={restaurantData}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           renderItem={(item) => renderRestaurantCards(item)}
-          style={styles.horizontalScroll}
         />
       </View>
       <Divider />
-      <View style={styles.section}>
+      <View>
         <AppText text="Newly Added" style={styles.header} />
         <FlatList
           data={restaurantData}
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           renderItem={(item) => renderRestaurantCards(item)}
-          style={styles.horizontalScroll}
         />
         <Divider />
       </View>
@@ -74,9 +71,7 @@ const BrowseRestaurantsScreen = (props) => {
 };
 
 const styles = StyleSheet.create({
-  horizontalScroll: { height: 150, marginBottom: 30 },
-  header: { marginBottom: 15, marginTop: 15 },
-  section: { marginLeft: 10 },
+  header: { margin: 15 },
 });
 
 export default BrowseRestaurantsScreen;

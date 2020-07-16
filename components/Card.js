@@ -23,10 +23,9 @@ const Card = (props) => {
 };
 
 styles = StyleSheet.create({
-  photo: { borderRadius: 15, flex: 1, width: 300 },
+  photo: { borderRadius: 15, width: 300, height: 144 },
   text: {
-    flex: 1,
-    marginTop: 10,
+    marginBottom: 10,
   },
   container: {
     shadowColor: "black",
@@ -34,8 +33,12 @@ styles = StyleSheet.create({
     shadowOffset: { widght: 0, height: 2 },
     shadowRadius: 2,
     textAlign: "left",
-    marginRight: 10,
-    height: 300,
+    marginRight: 15,
+    marginLeft: 15,
+    height: 180,
+    flexDirection: "column",
+    flex: 1,
+    justifyContent: "space-between",
   },
 });
 

@@ -6,8 +6,8 @@ const Divider = (props) => {
   return (
     <View
       style={{
-        borderTopWidth: 1,
-        borderTopColor: Colors.divider,
+        height: 1,
+        backgroundColor: Colors.divider,
       }}
     />
   );
