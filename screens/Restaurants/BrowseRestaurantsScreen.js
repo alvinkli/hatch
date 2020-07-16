@@ -47,31 +47,36 @@ const BrowseRestaurantsScreen = (props) => {
         />
       </View>
       <Divider />
-      <AppText text="Nearby" style={styles.header} />
-      <FlatList
-        data={restaurantData}
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        renderItem={(item) => renderRestaurantCards(item)}
-        style={styles.horizontalScroll}
-      />
+      <View style={styles.section}>
+        <AppText text="Nearby" style={styles.header} />
+        <FlatList
+          data={restaurantData}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          renderItem={(item) => renderRestaurantCards(item)}
+          style={styles.horizontalScroll}
+        />
+      </View>
       <Divider />
-      <AppText text="Newly Added" style={styles.header} />
-      <FlatList
-        data={restaurantData}
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        renderItem={(item) => renderRestaurantCards(item)}
-        style={styles.horizontalScroll}
-      />
-      <Divider />
+      <View style={styles.section}>
+        <AppText text="Newly Added" style={styles.header} />
+        <FlatList
+          data={restaurantData}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          renderItem={(item) => renderRestaurantCards(item)}
+          style={styles.horizontalScroll}
+        />
+        <Divider />
+      </View>
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  horizontalScroll: { height: 150, marginBottom: 15, marginLeft: 10 },
-  header: { marginBottom: 15, marginTop: 15, marginLeft: 10 },
+  horizontalScroll: { height: 150, marginBottom: 30 },
+  header: { marginBottom: 15, marginTop: 15 },
+  section: { marginLeft: 10 },
 });
 
 export default BrowseRestaurantsScreen;
