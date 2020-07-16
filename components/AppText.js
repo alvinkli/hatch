@@ -6,7 +6,7 @@ const AppText = (props) => {
   const styles = StyleSheet.create({
     text: {
       color: props.accent ? Colors.primary : Colors.text,
-      fontSize: 16,
+      fontSize: props.large ? 40 : props.small ? 14 : 16,
       fontFamily: "Montserrat-Regular",
     },
   });
