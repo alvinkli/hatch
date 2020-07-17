@@ -6,26 +6,45 @@ import {
   StyleSheet,
 } from "react-native";
 import AppText from "./AppText";
+import Colors from "../constants/Colors";
 
 const Card = (props) => {
   return (
     <TouchableWithoutFeedback onPress={props.onSelect}>
       <View style={styles.container}>
         <Image style={styles.photo} source={props.image} />
-        <AppText
-          style={styles.text}
-          accent={false}
-          text={props.restaurantName + " (" + props.restaurantDistance + " mi)"}
-        />
+        <View style={styles.text}>
+          <AppText
+            accent={false}
+            text={
+              props.restaurantName + " (" + props.restaurantDistance + " mi)"
+            }
+            small={true}
+            style={{ color: "black" }}
+          />
+        </View>
       </View>
     </TouchableWithoutFeedback>
   );
 };
 
 styles = StyleSheet.create({
-  photo: { borderRadius: 15, width: 300, height: 144 },
+  photo: {
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    width: 300,
+    height: 144,
+  },
   text: {
-    marginBottom: 10,
+    padding: 8,
+    marginBottom: 15,
+    borderBottomWidth: 0.2,
+    borderRightWidth: 0.2,
+    borderLeftWidth: 0.2,
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
+    borderColor: "#000000",
+    backgroundColor: "white",
   },
   container: {
     shadowColor: "black",
@@ -33,12 +52,12 @@ styles = StyleSheet.create({
     shadowOffset: { widght: 0, height: 2 },
     shadowRadius: 2,
     textAlign: "left",
-    marginRight: 15,
-    marginLeft: 15,
+    marginLeft: 10,
     height: 180,
     flexDirection: "column",
     flex: 1,
     justifyContent: "space-between",
+    margin: 16,
   },
 });
 

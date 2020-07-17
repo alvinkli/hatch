@@ -17,7 +17,7 @@ const RestaurantsSection = (props) => {
 
   return (
     <View>
-      <AppText text={props.title} style={{ margin: 15 }} />
+      <AppText text={props.title} style={{ marginLeft: 10, marginTop: 16 }} />
       <FlatList
         data={props.restaurants}
         horizontal={true}
