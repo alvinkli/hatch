@@ -4,6 +4,7 @@ import LargeButton from "../../components/LargeButton";
 import AppText from "../../components/AppText";
 import Colors from "../../constants/Colors";
 import Logo from "../../components/Logo";
+import Plate from "../../components/Plate";
 
 const UserAuthScreen = (props) => {
   return (
