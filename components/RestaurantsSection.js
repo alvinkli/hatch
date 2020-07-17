@@ -3,7 +3,7 @@ import { View, FlatList } from "react-native";
 import Card from "../components/Card";
 import AppText from "../components/AppText";
 
-const Divider = (props) => {
+const RestaurantsSection = (props) => {
   const renderRestaurantCards = (itemData) => {
     return (
       <Card
@@ -28,4 +28,4 @@ const Divider = (props) => {
   );
 };
 
-export default Divider;
+export default RestaurantsSection;
