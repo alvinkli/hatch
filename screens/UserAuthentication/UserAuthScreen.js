@@ -9,14 +9,18 @@ const UserAuthScreen = (props) => {
   return (
     <View
       style={{
-        flexDirection: "column",
-        height: 300,
         flex: 1,
-        justifyContent: "center",
+        flexDirection: "row",
+        alignItems: "center",
       }}
     >
       <View
-        style={{ flexDirection: "column", flex: 1, justifyContent: "center" }}
+        style={{
+          flexDirection: "column",
+          flex: 1,
+          justifyContent: "center",
+          height: 700,
+        }}
       >
         <View
           style={{
