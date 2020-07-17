@@ -7,7 +7,7 @@ const AppText = (props) => {
     text: {
       color: props.accent ? Colors.primary : Colors.text,
       fontSize: props.large ? 40 : props.small ? 12 : 16,
-      fontFamily: "Montserrat-Regular",
+      fontFamily: props.bold ? "Montserrat-Bold" : "Montserrat-Regular",
     },
   });
   return <Text style={[styles.text, props.style]}>{props.text}</Text>;

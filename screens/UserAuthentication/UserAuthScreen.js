@@ -17,7 +17,11 @@ const UserAuthScreen = (props) => {
           alignItems: "center",
         }}
       >
-        <AppText text="HATCH" style={{ fontSize: 48, color: Colors.primary }} />
+        <AppText
+          text="HATCH"
+          bold={true}
+          style={{ fontSize: 48, color: Colors.primary }}
+        />
       </View>
       <View
         style={{ flexDirection: "column", flex: 1, justifyContent: "center" }}
