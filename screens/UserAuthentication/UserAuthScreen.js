@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image } from "react-native";
+import { View, Image, StyleSheet } from "react-native";
 import LargeButton from "../../components/LargeButton";
 import AppText from "../../components/AppText";
 import Colors from "../../constants/Colors";
@@ -31,6 +31,13 @@ const UserAuthScreen = (props) => {
             alignItems: "center",
           }}
         >
+          <Plate
+            style={{
+              height: 700,
+              position: "absolute",
+              top: 0,
+            }}
+          />
           <Logo />
           <AppText
             text="HATCH"
