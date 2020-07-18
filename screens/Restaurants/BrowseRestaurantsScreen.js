@@ -31,6 +31,7 @@ const BrowseRestaurantsScreen = (props) => {
         <RestaurantsSection
           title={itemData.item.name}
           restaurants={itemData.item.restaurants}
+          navigation={props.navigation}
         />
         <Divider />
       </View>
