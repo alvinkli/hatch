@@ -1,8 +1,6 @@
 import "react-native-gesture-handler";
 import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import { StyleSheet } from "react-native";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
 
@@ -18,7 +16,7 @@ const fetchFonts = () => {
 };
 
 export default function App() {
-  const [loaded, setLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const [isloggedIn, setIsLoggedIn] = useState(false);
 
   const login = () => {
@@ -35,9 +33,10 @@ export default function App() {
       border: Colors.primary,
     },
   };
-  if (!loaded) {
+
+  if (!isLoaded) {
     return (
-      <AppLoading startAsync={fetchFonts} onFinish={() => setLoaded(true)} />
+      <AppLoading startAsync={fetchFonts} onFinish={() => setIsLoaded(true)} />
     );
   }
 
