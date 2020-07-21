@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Divider from "../../components/Divider";
 import RestaurantsSection from "../../components/RestaurantsSection";
 import * as restaurantActions from "../../store/actions/restaurants";
+//import Input from "../../components/Input";
 
 const BrowseRestaurantsScreen = (props) => {
   const restaurantsData = useSelector(
@@ -48,6 +49,7 @@ const BrowseRestaurantsScreen = (props) => {
           navigation={props.navigation}
         />
         <Divider />
+        {/* <Input placeholder="Email" /> */}
       </View>
     );
   };

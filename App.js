@@ -52,9 +52,9 @@ export default function App() {
     </Provider>
   );
 
-  /*return (
-      <NavigationContainer theme={MyTheme}>
-        <UserAuthNav login={login} />
-      </NavigationContainer>
-    );*/
+  // return (
+  //     <NavigationContainer theme={MyTheme}>
+  //       <UserAuthNav login={login} />
+  //     </NavigationContainer>
+  //   );
 }
