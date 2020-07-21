@@ -6,13 +6,12 @@ import {
   StyleSheet,
 } from "react-native";
 import AppText from "./AppText";
-import Colors from "../constants/Colors";
 
 const Card = (props) => {
   return (
     <TouchableWithoutFeedback onPress={props.onSelect}>
       <View style={styles.container}>
-        <Image style={styles.photo} source={props.image} />
+        <Image style={styles.photo} source={{ uri: props.image }} />
         <View style={styles.text}>
           <AppText
             accent={false}

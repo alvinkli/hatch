@@ -1,27 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FlatList, View } from "react-native";
+import { useSelector, useDispatch } from "react-redux";
 
 import Divider from "../../components/Divider";
 import RestaurantsSection from "../../components/RestaurantsSection";
-
-import Restaurants from "../../assets/data/restaurants";
+import * as restaurantActions from "../../store/actions/restaurants";
 
 const BrowseRestaurantsScreen = (props) => {
+  const restaurantsData = useSelector(
+    (state) => state.restaurants.restaurantsData
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(restaurantActions.fetchRestaurants());
+  }, [dispatch]);
+
   const sectionsData = [
     {
       key: "1",
       name: "Popular",
-      restaurants: Restaurants.popular,
+      restaurants: restaurantsData.filter(
+        (restaurant) => restaurant.rating >= 4.0
+      ),
     },
     {
       key: "2",
       name: "Nearby",
-      restaurants: Restaurants.nearby,
+      restaurants: restaurantsData.filter(
+        (restaurant) => restaurant.distance < 1
+      ),
     },
     {
       key: "3",
       name: "Newly Added",
-      restaurants: Restaurants.newlyAdded,
+      restaurants: restaurantsData,
     },
   ];
 

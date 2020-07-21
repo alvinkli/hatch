@@ -3,10 +3,19 @@ import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import ReduxThunk from "redux-thunk";
 
 import MainNav from "./navigation/MainNav";
-import UserAuthNav from "./navigation/UserAuthNav";
 import Colors from "./constants/Colors";
+import restaurantsReducer from "./store/reducers/restaurants";
+
+const rootReducer = combineReducers({
+  restaurants: restaurantsReducer,
+});
+
+const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -17,11 +26,6 @@ const fetchFonts = () => {
 
 export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isloggedIn, setIsLoggedIn] = useState(false);
-
-  const login = () => {
-    setIsLoggedIn(true);
-  };
 
   const MyTheme = {
     dark: false,
@@ -40,17 +44,17 @@ export default function App() {
     );
   }
 
-  if (isloggedIn) {
-    return (
+  return (
+    <Provider store={store}>
       <NavigationContainer theme={MyTheme}>
         <MainNav />
       </NavigationContainer>
-    );
-  } else {
-    return (
+    </Provider>
+  );
+
+  /*return (
       <NavigationContainer theme={MyTheme}>
         <UserAuthNav login={login} />
       </NavigationContainer>
-    );
-  }
+    );*/
 }
