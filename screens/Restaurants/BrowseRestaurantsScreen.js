@@ -10,6 +10,7 @@ const BrowseRestaurantsScreen = (props) => {
   const restaurantsData = useSelector(
     (state) => state.restaurants.restaurantsData
   );
+
   const dispatch = useDispatch();
 
   useEffect(() => {
