@@ -30,8 +30,12 @@ const LoginScreen = (props) => {
             medium={true}
             style={{ marginLeft: "9%" }}
           />
-          <Input placeholder="Email" />
-          <Input placeholder="Password" />
+          <Input
+            placeholder="Email"
+            keyboardType="email-address"
+            autoCapitalize="none"
+          />
+          <Input placeholder="Password" secureTextEntry={true} />
           <LargeButton
             text="Login"
             accent={true}

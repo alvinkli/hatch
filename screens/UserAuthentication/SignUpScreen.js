@@ -32,8 +32,12 @@ const SignUpScreen = (props) => {
           />
           <Input placeholder="First Name" />
           <Input placeholder="Last Name" />
-          <Input placeholder="Email" />
-          <Input placeholder="Password" />
+          <Input
+            placeholder="Email"
+            keyboardType="email-address"
+            autoCapitalize="none"
+          />
+          <Input placeholder="Password" secureTextEntry={true} />
           <LargeButton
             text="Sign Up"
             onPress={() => props.navigation.navigate("LoginScreen")}
