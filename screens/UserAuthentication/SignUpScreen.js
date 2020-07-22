@@ -51,7 +51,7 @@ const SignUpScreen = (props) => {
               autoCapitalize="none"
             />
             <Input placeholder="Password" secureTextEntry={true} />
-            <LargeButton text="Sign Up" />
+            <LargeButton text="Sign Up" onPress={login} />
             <TouchableWithoutFeedback
               onPress={() => props.navigation.navigate("LoginScreen")}
             >

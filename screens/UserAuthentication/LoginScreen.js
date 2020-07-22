@@ -48,11 +48,7 @@ const LoginScreen = (props) => {
               autoCapitalize="none"
             />
             <Input placeholder="Password" secureTextEntry={true} />
-            <LargeButton
-              text="Login"
-              accent={true}
-              onPress={() => props.navigation.navigate("LoginScreen")}
-            />
+            <LargeButton text="Login" accent={true} onPress={login} />
           </View>
         </KeyboardAvoidingView>
         <View style={{ padding: 20 }} />

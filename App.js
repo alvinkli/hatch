@@ -25,11 +25,13 @@ const fetchFonts = () => {
   });
 };
 
-const login = () => {
-  console.log("Logged In!");
-};
 export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const login = () => {
+    setIsLoggedIn(true);
+  };
 
   const MyTheme = {
     dark: false,
@@ -48,17 +50,21 @@ export default function App() {
     );
   }
 
-  return (
-    <NavigationContainer theme={MyTheme}>
-      <UserAuthNav login={login} />
-    </NavigationContainer>
-  );
-
-  return (
-    <Provider store={store}>
-      <NavigationContainer theme={MyTheme}>
-        <MainNav />
-      </NavigationContainer>
-    </Provider>
-  );
+  if (!isLoggedIn) {
+    return (
+      <Provider store={store}>
+        <NavigationContainer theme={MyTheme}>
+          <UserAuthNav login={login} />
+        </NavigationContainer>
+      </Provider>
+    );
+  } else {
+    return (
+      <Provider store={store}>
+        <NavigationContainer theme={MyTheme}>
+          <MainNav />
+        </NavigationContainer>
+      </Provider>
+    );
+  }
 }

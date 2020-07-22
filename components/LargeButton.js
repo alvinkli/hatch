@@ -17,7 +17,6 @@ const LargeButton = (props) => {
       width: "84%",
       marginLeft: "8%",
       marginTop: 16,
-      //backgroundColor: props.accent ? Colors.secondary : Colors.primary,
       backgroundColor: "white",
       borderColor: "#AAAAAA",
       borderWidth: 1,
