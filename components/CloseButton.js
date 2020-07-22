@@ -16,7 +16,7 @@ const CloseButton = (props) => {
 };
 const styles = StyleSheet.create({
   button: {
-    height: 52,
+    height: 34,
     paddingStart: 24,
     paddingEnd: 24,
   },

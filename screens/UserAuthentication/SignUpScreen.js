@@ -27,7 +27,7 @@ const SignUpScreen = (props) => {
           <View
             style={{
               alignItems: "center",
-              paddingTop: 32,
+              marginTop: 12,
             }}
           >
             <Logo />

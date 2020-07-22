@@ -25,8 +25,8 @@ const LoginScreen = (props) => {
           </View>
           <View
             style={{
+              marginTop: 12,
               alignItems: "center",
-              paddingTop: 32,
             }}
           >
             <Logo />
