@@ -10,6 +10,7 @@ import LargeButton from "../../components/LargeButton";
 import Logo from "../../components/Logo";
 import AppText from "../../components/AppText";
 import Colors from "../../constants/Colors";
+import CloseButton from "../../components/CloseButton";
 
 const LoginScreen = (props) => {
   const { login } = props.route.params;
@@ -17,6 +18,11 @@ const LoginScreen = (props) => {
     <ScrollView scrollEnabled={false}>
       <SafeAreaView>
         <KeyboardAvoidingView behavior="position">
+          <View>
+            <CloseButton
+              onPress={() => props.navigation.navigate("UserAuthScreen")}
+            />
+          </View>
           <View
             style={{
               alignItems: "center",

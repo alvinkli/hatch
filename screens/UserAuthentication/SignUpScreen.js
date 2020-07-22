@@ -4,12 +4,14 @@ import {
   SafeAreaView,
   KeyboardAvoidingView,
   ScrollView,
+  TouchableWithoutFeedback,
 } from "react-native";
 import Input from "../../components/Input";
 import LargeButton from "../../components/LargeButton";
 import Logo from "../../components/Logo";
 import AppText from "../../components/AppText";
 import Colors from "../../constants/Colors";
+import CloseButton from "../../components/CloseButton";
 
 const SignUpScreen = (props) => {
   const { login } = props.route.params;
@@ -17,6 +19,11 @@ const SignUpScreen = (props) => {
     <ScrollView scrollEnabled={false}>
       <SafeAreaView>
         <KeyboardAvoidingView behavior="position">
+          <View>
+            <CloseButton
+              onPress={() => props.navigation.navigate("UserAuthScreen")}
+            />
+          </View>
           <View
             style={{
               alignItems: "center",
@@ -44,18 +51,21 @@ const SignUpScreen = (props) => {
               autoCapitalize="none"
             />
             <Input placeholder="Password" secureTextEntry={true} />
-            <LargeButton
-              text="Sign Up"
+            <LargeButton text="Sign Up" />
+            <TouchableWithoutFeedback
               onPress={() => props.navigation.navigate("LoginScreen")}
-            />
-            <AppText
-              style={{
-                marginTop: 12,
-                marginLeft: "9%",
-                color: Colors.secondary,
-              }}
-              text="Already have an account? Sign in here"
-            />
+            >
+              <View>
+                <AppText
+                  style={{
+                    marginTop: 12,
+                    marginLeft: "9%",
+                    color: Colors.secondary,
+                  }}
+                  text="Already have an account? Sign in here"
+                />
+              </View>
+            </TouchableWithoutFeedback>
           </View>
           <View style={{ height: 20 }} />
         </KeyboardAvoidingView>
