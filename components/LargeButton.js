@@ -17,13 +17,26 @@ const LargeButton = (props) => {
       width: "80%",
       marginLeft: "10%",
       marginTop: 16,
-      backgroundColor: props.accent ? Colors.secondary : Colors.primary,
+      //backgroundColor: props.accent ? Colors.secondary : Colors.primary,
+      backgroundColor: "white",
+      borderColor: "black",
+      borderWidth: 1,
       borderRadius: 16,
+      shadowColor: "black",
+      shadowOpacity: 0.2,
+      shadowOffset: { widght: 2, height: 2 },
+      shadowRadius: 2,
     },
   });
   return (
     <TouchableOpacity onPress={props.onPress} style={styles.button}>
-      <AppText text={props.text} style={{ color: "#FFFFFF", fontSize: 18 }} />
+      <AppText
+        text={props.text}
+        style={{
+          color: props.accent ? Colors.secondary : Colors.primary,
+          fontSize: 20,
+        }}
+      />
     </TouchableOpacity>
   );
 };

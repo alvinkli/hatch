@@ -36,7 +36,6 @@ const SignUpScreen = (props) => {
           <Input placeholder="Password" />
           <LargeButton
             text="Sign Up"
-            accent={true}
             onPress={() => props.navigation.navigate("LoginScreen")}
           />
         </View>

@@ -1,6 +1,6 @@
 export default {
-  primary: "#AD0B18",
-  secondary: "#A77B09",
+  primary: "#AA0000",
+  secondary: "#044B7F",
   text: "black",
   divider: "#DDDDDD",
 };

@@ -47,8 +47,8 @@ styles = StyleSheet.create({
   },
   container: {
     shadowColor: "black",
-    shadowOpacity: 0.3,
-    shadowOffset: { widght: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowOffset: { widght: 2, height: 2 },
     shadowRadius: 2,
     textAlign: "left",
     marginLeft: 10,
