@@ -7,18 +7,17 @@ const Input = (props) => {
 
 const styles = StyleSheet.create({
   input: {
-    borderWidth: 1,
-    borderColor: "black",
+    backgroundColor: "#EEEEEE",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    height: 48,
-    width: "80%",
-    marginLeft: "10%",
+    height: 44,
+    width: "84%",
+    marginLeft: "8%",
     marginTop: 16,
     borderRadius: 16,
     padding: 10,
-    fontSize: 24,
+    fontSize: 16,
   },
 });
 export default Input;
