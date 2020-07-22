@@ -28,7 +28,7 @@ const SignUpScreen = (props) => {
           <AppText
             text="Create An Account"
             medium={true}
-            style={{ marginLeft: "10%" }}
+            style={{ marginLeft: "8%" }}
           />
           <Input placeholder="First Name" />
           <Input placeholder="Last Name" />

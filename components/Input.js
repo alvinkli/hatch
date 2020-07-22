@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
     borderRadius: 16,
     padding: 10,
-    fontSize: 16,
+    fontSize: 20,
   },
 });
 export default Input;
