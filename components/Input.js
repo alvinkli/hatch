@@ -8,7 +8,7 @@ const Input = (props) => {
 const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
-    borderColor: "black",
+    borderColor: "#555555",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
     borderRadius: 16,
     padding: 10,
-    fontSize: 24,
+    fontSize: 20,
   },
 });
 export default Input;
