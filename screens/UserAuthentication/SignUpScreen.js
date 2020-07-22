@@ -59,6 +59,7 @@ const SignUpScreen = (props) => {
                 <AppText
                   style={{
                     marginTop: 12,
+                    height: 32,
                     marginLeft: "9%",
                     color: Colors.secondary,
                   }}
