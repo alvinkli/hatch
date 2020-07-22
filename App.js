@@ -7,6 +7,7 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import ReduxThunk from "redux-thunk";
 
+import UserAuthNav from "./navigation/UserAuthNav";
 import MainNav from "./navigation/MainNav";
 import Colors from "./constants/Colors";
 import restaurantsReducer from "./store/reducers/restaurants";
@@ -24,6 +25,9 @@ const fetchFonts = () => {
   });
 };
 
+const login = () => {
+  console.log("Logged In!");
+};
 export default function App() {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -45,16 +49,16 @@ export default function App() {
   }
 
   return (
+    <NavigationContainer theme={MyTheme}>
+      <UserAuthNav login={login} />
+    </NavigationContainer>
+  );
+
+  return (
     <Provider store={store}>
       <NavigationContainer theme={MyTheme}>
         <MainNav />
       </NavigationContainer>
     </Provider>
   );
-
-  // return (
-  //     <NavigationContainer theme={MyTheme}>
-  //       <UserAuthNav login={login} />
-  //     </NavigationContainer>
-  //   );
 }

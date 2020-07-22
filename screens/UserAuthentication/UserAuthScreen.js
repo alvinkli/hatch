@@ -20,7 +20,7 @@ const UserAuthScreen = (props) => {
           flexDirection: "column",
           flex: 1,
           justifyContent: "center",
-          height: 700,
+          height: 670,
         }}
       >
         <View
