@@ -19,11 +19,7 @@ const LargeButton = (props) => {
       marginTop: 16,
       //backgroundColor: props.accent ? Colors.secondary : Colors.primary,
       backgroundColor: "white",
-<<<<<<< HEAD
       borderColor: "#EEEEEE",
-=======
-      borderColor: "#555555",
->>>>>>> e7a2e763566f9e504c570fd38601809d81399ccb
       borderWidth: 1,
       borderRadius: 16,
       shadowColor: "black",
