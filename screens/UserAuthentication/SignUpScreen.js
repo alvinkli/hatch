@@ -28,7 +28,7 @@ const SignUpScreen = (props) => {
           <AppText
             text="Create An Account"
             medium={true}
-            style={{ marginLeft: "8%" }}
+            style={{ marginLeft: "9%" }}
           />
           <Input placeholder="First Name" />
           <Input placeholder="Last Name" />
@@ -37,6 +37,14 @@ const SignUpScreen = (props) => {
           <LargeButton
             text="Sign Up"
             onPress={() => props.navigation.navigate("LoginScreen")}
+          />
+          <AppText
+            style={{
+              marginTop: 12,
+              marginLeft: "9%",
+              color: Colors.secondary,
+            }}
+            text="Already have an account? Sign in here"
           />
         </View>
         <View style={{ height: 20 }} />

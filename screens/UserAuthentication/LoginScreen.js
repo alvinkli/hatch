@@ -28,7 +28,7 @@ const LoginScreen = (props) => {
           <AppText
             text="Enter Account Info"
             medium={true}
-            style={{ marginLeft: "8%" }}
+            style={{ marginLeft: "9%" }}
           />
           <Input placeholder="Email" />
           <Input placeholder="Password" />
