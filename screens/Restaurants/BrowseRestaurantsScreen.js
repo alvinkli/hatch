@@ -9,13 +9,11 @@ import firebase from "./../../firebase";
 const getData = async () => {
   const db = firebase.firestore();
   const user = await db
-    .collection("characters")
+    .collection("restaurants")
     .doc("mario")
     .get()
     .then((documentSnapshot) => {
-      if (documentSnapshot.exists) {
-        console.log("User data: ", documentSnapshot.data());
-      }
+      console.log(documentSnapshot.data());
     });
 };
 
