@@ -8,9 +8,9 @@ import firebase from "./../../firebase";
 
 const BrowseRestaurantsScreen = (props) => {
   const db = firebase.firestore();
-  const user = firestore().collection("Users").doc("ABC").get();
+  const user = db.collection("characters").doc("mario").get();
   console.log(user);
-
+  const restaurantsData = [];
   const sectionsData = [
     {
       key: "1",
