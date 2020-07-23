@@ -8,8 +8,15 @@ import firebase from "./../../firebase";
 
 const getData = async () => {
   const db = firebase.firestore();
-  const user = await db.collection("characters").doc("mario").get();
-  console.log(user);
+  const user = await db
+    .collection("characters")
+    .doc("mario")
+    .get()
+    .then((documentSnapshot) => {
+      if (documentSnapshot.exists) {
+        console.log("User data: ", documentSnapshot.data());
+      }
+    });
 };
 
 const BrowseRestaurantsScreen = (props) => {
