@@ -1,21 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FlatList, View } from "react-native";
-import { useSelector, useDispatch } from "react-redux";
 
 import Divider from "../../components/Divider";
 import RestaurantsSection from "../../components/RestaurantsSection";
-import * as restaurantActions from "../../store/actions/restaurants";
+
+import firebase from "./../../firebase";
 
 const BrowseRestaurantsScreen = (props) => {
-  const restaurantsData = useSelector(
-    (state) => state.restaurants.restaurantsData
-  );
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(restaurantActions.fetchRestaurants());
-  }, [dispatch]);
+  const db = firebase.firestore();
+  const user = firestore().collection("Users").doc("ABC").get();
+  console.log(user);
 
   const sectionsData = [
     {
