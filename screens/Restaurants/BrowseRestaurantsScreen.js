@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FlatList, View } from "react-native";
 
 import Divider from "../../components/Divider";
@@ -6,10 +6,17 @@ import RestaurantsSection from "../../components/RestaurantsSection";
 
 import firebase from "./../../firebase";
 
-const BrowseRestaurantsScreen = (props) => {
+const getData = async () => {
   const db = firebase.firestore();
-  const user = db.collection("characters").doc("mario").get();
+  const user = await db.collection("characters").doc("mario").get();
   console.log(user);
+};
+
+const BrowseRestaurantsScreen = (props) => {
+  useEffect(() => {
+    getData();
+  }, []);
+
   const restaurantsData = [];
   const sectionsData = [
     {
