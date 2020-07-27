@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { FlatList, View } from "react-native";
-
+import { FlatList, View, Text } from "react-native";
 import Divider from "../../components/Divider";
 import RestaurantsSection from "../../components/RestaurantsSection";
 
