@@ -1,7 +1,5 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Colors from "../constants/Colors";
-import CloseButton from "../components/CloseButton";
 
 import LoginScreen from "../screens/UserAuthentication/LoginScreen";
 import SignUpScreen from "../screens/UserAuthentication/SignUpScreen";

@@ -81,10 +81,11 @@ const SignUpScreen = (props) => {
           formState.inputValues.password
         )
       );
+      props.route.params.login();
     } catch (err) {
       setError(err.message);
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   const inputChangeHandler = useCallback(
