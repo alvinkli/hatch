@@ -1,24 +1,108 @@
-import React from "react";
+import React, { useReducer, useCallback, useState, useEffect } from "react";
 import {
   View,
   SafeAreaView,
   KeyboardAvoidingView,
   ScrollView,
   TouchableWithoutFeedback,
+  ActivityIndicator,
+  Alert,
 } from "react-native";
+import { useDispatch } from "react-redux";
 import Input from "../../components/Input";
 import LargeButton from "../../components/LargeButton";
 import Logo from "../../components/Logo";
 import AppText from "../../components/AppText";
 import Colors from "../../constants/Colors";
 import CloseButton from "../../components/CloseButton";
+import * as authActions from "../../store/actions/auth";
+
+const FORM_INPUT_UPDATE = "FORM_INPUT_UPDATE";
+
+const formReducer = (state, action) => {
+  if (action.type === FORM_INPUT_UPDATE) {
+    const updatedValues = {
+      ...state.inputValues,
+      [action.input]: action.value,
+    };
+    const updatedValidities = {
+      ...state.inputValidities,
+      [action.input]: action.isValid,
+    };
+    let updatedFormIsValid = true;
+    for (const key in updatedValidities) {
+      updatedFormIsValid = updatedFormIsValid && updatedValidities[key];
+    }
+    return {
+      formIsValid: updatedFormIsValid,
+      inputValidities: updatedValidities,
+      inputValues: updatedValues,
+    };
+  }
+  return state;
+};
 
 const SignUpScreen = (props) => {
-  const { login } = props.route.params;
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState();
+  const dispatch = useDispatch();
+
+  const [formState, dispatchFormState] = useReducer(formReducer, {
+    inputValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+    },
+    inputValidities: {
+      firstName: false,
+      lastName: false,
+      email: false,
+      password: false,
+    },
+    formIsValid: false,
+  });
+
+  useEffect(() => {
+    if (error) {
+      Alert.alert("Sign up Error", error, [{ text: "Try Again" }]);
+    }
+  }, [error]);
+
+  const signupHandler = async () => {
+    setError(null);
+    setIsLoading(true);
+    try {
+      await dispatch(
+        authActions.signup(
+          //formState.inputValues.firstName,
+          //formState.inputValues.lastName,
+          formState.inputValues.email,
+          formState.inputValues.password
+        )
+      );
+    } catch (err) {
+      setError(err.message);
+    }
+    setIsLoading(false);
+  };
+
+  const inputChangeHandler = useCallback(
+    (inputIdentifier, inputValue, inputValidity) => {
+      dispatchFormState({
+        type: FORM_INPUT_UPDATE,
+        value: inputValue,
+        isValid: inputValidity,
+        input: inputIdentifier,
+      });
+    },
+    [dispatchFormState]
+  );
+
   return (
-    <ScrollView scrollEnabled={false}>
-      <SafeAreaView>
-        <KeyboardAvoidingView behavior="position">
+    <KeyboardAvoidingView behavior="position">
+      <ScrollView scrollEnabled={false}>
+        <SafeAreaView>
           <View>
             <CloseButton
               onPress={() => props.navigation.navigate("UserAuthScreen")}
@@ -43,15 +127,52 @@ const SignUpScreen = (props) => {
               medium={true}
               style={{ marginLeft: "9%" }}
             />
-            <Input placeholder="First Name" />
-            <Input placeholder="Last Name" />
             <Input
+              id="firstName"
+              placeholder="First Name"
+              keyboardType="default"
+              required
+              errorMessage="Please enter your first name"
+              onInputChange={inputChangeHandler}
+            />
+            <Input
+              id="lastName"
+              placeholder="Last Name"
+              keyboardType="default"
+              required
+              errorMessage="Please enter your last name"
+              onInputChange={inputChangeHandler}
+            />
+            <Input
+              id="email"
               placeholder="Email"
               keyboardType="email-address"
+              required
+              errorMessage="Please enter a valid email."
+              onInputChange={inputChangeHandler}
               autoCapitalize="none"
+              email
             />
-            <Input placeholder="Password" secureTextEntry={true} />
-            <LargeButton text="Sign Up" onPress={login} />
+            <Input
+              id="password"
+              placeholder="Password"
+              keyboardType="default"
+              required
+              errorMessage="Password must be at least 8 characters"
+              onInputChange={inputChangeHandler}
+              autoCapitalize="none"
+              secureTextEntry
+              minLength={8}
+            />
+            {isLoading ? (
+              <ActivityIndicator
+                size="large"
+                color={Colors.primary}
+                marginTop={16}
+              />
+            ) : (
+              <LargeButton text="Sign Up" onPress={signupHandler} />
+            )}
             <TouchableWithoutFeedback
               onPress={() => props.navigation.navigate("LoginScreen")}
             >
@@ -68,10 +189,10 @@ const SignUpScreen = (props) => {
               </View>
             </TouchableWithoutFeedback>
           </View>
-          <View style={{ height: 20 }} />
-        </KeyboardAvoidingView>
-      </SafeAreaView>
-    </ScrollView>
+        </SafeAreaView>
+      </ScrollView>
+      <View style={{ height: 20 }} />
+    </KeyboardAvoidingView>
   );
 };
 
