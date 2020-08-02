@@ -11,9 +11,11 @@ import UserAuthNav from "./navigation/UserAuthNav";
 import MainNav from "./navigation/MainNav";
 import Colors from "./constants/Colors";
 import restaurantsReducer from "./store/reducers/restaurants";
+import authReducer from "./store/reducers/auth";
 
 const rootReducer = combineReducers({
   restaurants: restaurantsReducer,
+  auth: authReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
