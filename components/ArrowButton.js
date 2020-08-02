@@ -8,8 +8,8 @@ const ArrowButton = (props) => {
   const styles = StyleSheet.create({
     button: {
       paddingVertical: 18,
-      paddingStart: 24,
-      paddingEnd: 24,
+      paddingStart: 16,
+      paddingEnd: 16,
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "space-between",

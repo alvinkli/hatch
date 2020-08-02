@@ -91,7 +91,7 @@ const RestaurantMenuScreen = (props) => {
       <View>
         <AppText text="Menu" padding medium />
       </View>
-      <Divider />
+      <Divider accent />
       <FlatList data={sectionsData} renderItem={renderSection} />
     </View>
   );

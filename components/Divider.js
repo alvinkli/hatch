@@ -7,7 +7,7 @@ const Divider = (props) => {
     <View
       style={{
         height: 1,
-        backgroundColor: Colors.divider,
+        backgroundColor: props.accent ? Colors.secondary : Colors.divider,
       }}
     />
   );
