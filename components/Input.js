@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     height: 44,
     width: "84%",
     borderRadius: 22,
-    padding: 16,
+    paddingStart: 16,
     fontSize: 20,
   },
   inputContainer: {

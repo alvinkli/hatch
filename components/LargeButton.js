@@ -18,13 +18,11 @@ const LargeButton = (props) => {
       marginLeft: "8%",
       marginTop: 16,
       backgroundColor: "white",
-      borderColor: "#AAAAAA",
-      borderWidth: 1,
       borderRadius: 22,
-      shadowColor: "black",
-      shadowOpacity: 0.2,
-      shadowOffset: { widght: 2, height: 2 },
-      shadowRadius: 2,
+      shadowColor: "#111111",
+      shadowOpacity: 0.3,
+      shadowOffset: { width: 0, height: 0 },
+      shadowRadius: 4,
     },
   });
   return (
