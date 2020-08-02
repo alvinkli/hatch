@@ -150,7 +150,7 @@ const LoginScreen = (props) => {
                 marginTop={16}
               />
             ) : (
-              <LargeButton text="Login" onPress={loginHandler} />
+              <LargeButton text="Login" onPress={loginHandler} secondary />
             )}
             <TouchableWithoutFeedback
               onPress={() => props.navigation.navigate("SignUpScreen")}

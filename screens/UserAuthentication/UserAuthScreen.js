@@ -54,8 +54,8 @@ const UserAuthScreen = (props) => {
           />
           <LargeButton
             text="Login"
-            accent={true}
             onPress={() => props.navigation.navigate("LoginScreen")}
+            secondary
           />
         </View>
       </View>

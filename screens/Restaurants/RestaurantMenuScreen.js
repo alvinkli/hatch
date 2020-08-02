@@ -3,7 +3,7 @@ import { View, Text, Button, Image, StyleSheet } from "react-native";
 import Divider from "../../components/Divider";
 import ArrowButton from "../../components/ArrowButton";
 import AppText from "../../components/AppText";
-import Input from "../../components/Input";
+import LargeButton from "../../components/LargeButton";
 import { FlatList } from "react-native-gesture-handler";
 import Colors from "../../constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
@@ -17,12 +17,12 @@ const RestaurantMenuScreen = (props) => {
     infoContainer: {
       flexDirection: "row",
       borderBottomWidth: 1,
-      borderBottomColor: Colors.strongDivider,
+      borderBottomColor: Colors.divider,
     },
     info: {
       flex: 1,
       borderRightWidth: 1,
-      borderRightColor: Colors.strongDivider,
+      borderRightColor: Colors.divider,
       paddingHorizontal: 12,
       paddingVertical: 8,
     },
@@ -91,7 +91,7 @@ const RestaurantMenuScreen = (props) => {
       <View>
         <AppText text="Menu" padding medium />
       </View>
-      <Divider accent />
+      <Divider />
       <FlatList data={sectionsData} renderItem={renderSection} />
     </View>
   );

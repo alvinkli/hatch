@@ -6,6 +6,7 @@ import {
   StyleSheet,
 } from "react-native";
 import AppText from "./AppText";
+import Colors from "../constants/Colors";
 
 const Card = (props) => {
   styles = StyleSheet.create({
@@ -17,20 +18,21 @@ const Card = (props) => {
     },
     text: {
       padding: 8,
+      paddingStart: 12,
       marginBottom: 15,
-      borderBottomWidth: 0.2,
+      /*borderBottomWidth: 0.2,
       borderRightWidth: 0.2,
-      borderLeftWidth: 0.2,
+      borderLeftWidth: 0.2,*/
       borderBottomLeftRadius: 15,
       borderBottomRightRadius: 15,
       borderColor: "#000000",
-      backgroundColor: "white",
+      backgroundColor: Colors.primary,
     },
     container: {
-      shadowColor: "black",
-      shadowOpacity: 0.2,
-      shadowOffset: { widght: 2, height: 2 },
-      shadowRadius: 2,
+      shadowColor: "#111111",
+      shadowOpacity: 0.3,
+      shadowOffset: { width: 0, height: 0 },
+      shadowRadius: 4,
       textAlign: "left",
       marginLeft: 20,
       height: 180,
@@ -54,10 +56,9 @@ const Card = (props) => {
         />
         <View style={styles.text}>
           <AppText
-            accent={false}
             text={props.restaurantName + " (" + props.location + ")"}
-            small={true}
-            style={{ color: "black" }}
+            style={{ color: "white", fontFamily: "Montserrat-Bold" }}
+            small
           />
         </View>
       </View>

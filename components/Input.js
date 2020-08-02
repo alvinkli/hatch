@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     height: 44,
     width: "84%",
-    borderRadius: 22,
+    borderRadius: 5,
     paddingStart: 16,
     fontSize: 20,
   },
