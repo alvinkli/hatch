@@ -20,7 +20,7 @@ const LargeButton = (props) => {
       backgroundColor: "white",
       borderColor: "#AAAAAA",
       borderWidth: 1,
-      borderRadius: 16,
+      borderRadius: 22,
       shadowColor: "black",
       shadowOpacity: 0.2,
       shadowOffset: { widght: 2, height: 2 },

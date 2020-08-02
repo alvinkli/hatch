@@ -17,12 +17,12 @@ const RestaurantMenuScreen = (props) => {
     infoContainer: {
       flexDirection: "row",
       borderBottomWidth: 1,
-      borderBottomColor: Colors.divider,
+      borderBottomColor: Colors.strongDivider,
     },
     info: {
       flex: 1,
       borderRightWidth: 1,
-      borderRightColor: Colors.divider,
+      borderRightColor: Colors.strongDivider,
       paddingHorizontal: 12,
       paddingVertical: 8,
     },

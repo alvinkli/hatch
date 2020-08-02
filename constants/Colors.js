@@ -3,4 +3,5 @@ export default {
   secondary: "#044B7F",
   text: "black",
   divider: "#DDDDDD",
+  strongDivider: "#AAAAAA",
 };
