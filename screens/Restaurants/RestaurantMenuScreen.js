@@ -9,6 +9,34 @@ import Colors from "../../constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
 
 const RestaurantMenuScreen = (props) => {
+  styles = StyleSheet.create({
+    headerImage: {
+      width: "100%",
+      height: 160,
+    },
+    infoContainer: {
+      flexDirection: "row",
+      paddingTop: 8,
+    },
+    info: {
+      flex: 1,
+      borderRightWidth: 1,
+      borderRightColor: Colors.primary,
+      paddingHorizontal: 12,
+      paddingVertical: 8,
+    },
+    icon: {
+      fontSize: 24,
+      paddingEnd: 8,
+    },
+    infoText: {
+      flexDirection: "row",
+      justifyContent: "center",
+      alignItems: "center",
+      paddingVertical: 4,
+    },
+  });
+
   const sectionsData = ["Small Plates", "Drinks", "Main Course", "Dessert"];
 
   const renderSection = (itemData) => {
@@ -58,33 +86,5 @@ const RestaurantMenuScreen = (props) => {
     </View>
   );
 };
-
-styles = StyleSheet.create({
-  headerImage: {
-    width: "100%",
-    height: 160,
-  },
-  infoContainer: {
-    flexDirection: "row",
-    paddingTop: 8,
-  },
-  info: {
-    flex: 1,
-    borderRightWidth: 1,
-    borderRightColor: Colors.primary,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-  },
-  icon: {
-    fontSize: 24,
-    paddingEnd: 8,
-  },
-  infoText: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    paddingVertical: 4,
-  },
-});
 
 export default RestaurantMenuScreen;
