@@ -7,9 +7,13 @@ const RestaurantsSection = (props) => {
   const renderRestaurantCards = (itemData) => {
     return (
       <Card
-        onSelect={() => props.navigation.navigate("RestaurantMenuScreen")}
+        onPress={() =>
+          props.navigation.navigate("RestaurantMenuScreen", {
+            key: itemData.item.key,
+          })
+        }
         restaurantName={itemData.item.name}
-        restaurantDistance={itemData.item.distance}
+        location={itemData.item.location}
         image={itemData.item.image}
       />
     );
@@ -17,7 +21,7 @@ const RestaurantsSection = (props) => {
 
   return (
     <View>
-      <AppText text={props.title} style={{ marginLeft: 10, marginTop: 16 }} />
+      <AppText text={props.title} padding />
       <FlatList
         data={props.restaurants}
         horizontal={true}

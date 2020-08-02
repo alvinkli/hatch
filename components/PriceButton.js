@@ -6,7 +6,7 @@ import AppText from "./AppText";
 const PriceButton = (props) => {
   const styles = StyleSheet.create({
     button: {
-      height: 64,
+      paddingVertical: 12,
       paddingStart: 24,
       paddingEnd: 24,
       flexDirection: "row",
@@ -15,16 +15,16 @@ const PriceButton = (props) => {
       borderBottomWidth: 1,
       borderBottomColor: Colors.divider,
     },
-    arrow: {
-      fontSize: 20,
-      color: props.accent ? Colors.primary : Colors.text,
-    },
+    itemDesc: { flex: 1, paddingEnd: 12 },
   });
   return (
     <TouchableHighlight onPress={props.onPress} underlayColor="#DDDDDD">
       <View style={styles.button}>
-        <AppText text={props.text} accent={props.accent} />
-        <AppText text={"$" + props.price} accent={!props.accent} />
+        <View style={styles.itemDesc}>
+          <AppText text={props.text} accent={props.accent} />
+          <AppText text={props.description} accent={!props.accent} small />
+        </View>
+        <AppText text={"$" + props.price} accent={props.accent} />
       </View>
     </TouchableHighlight>
   );

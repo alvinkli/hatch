@@ -7,7 +7,7 @@ import { Ionicons } from "@expo/vector-icons";
 const ArrowButton = (props) => {
   const styles = StyleSheet.create({
     button: {
-      height: 64,
+      paddingVertical: 18,
       paddingStart: 24,
       paddingEnd: 24,
       flexDirection: "row",

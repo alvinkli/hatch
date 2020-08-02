@@ -9,15 +9,20 @@ import AppText from "./AppText";
 
 const Card = (props) => {
   return (
-    <TouchableWithoutFeedback onPress={props.onSelect}>
+    <TouchableWithoutFeedback onPress={props.onPress}>
       <View style={styles.container}>
-        <Image style={styles.photo} source={{ uri: props.image }} />
+        <Image
+          style={styles.photo}
+          source={
+            props.image
+              ? { uri: props.image }
+              : require("../assets/default.jpeg")
+          }
+        />
         <View style={styles.text}>
           <AppText
             accent={false}
-            text={
-              props.restaurantName + " (" + props.restaurantDistance + " mi)"
-            }
+            text={props.restaurantName + " (" + props.location + ")"}
             small={true}
             style={{ color: "black" }}
           />
@@ -51,12 +56,12 @@ styles = StyleSheet.create({
     shadowOffset: { widght: 2, height: 2 },
     shadowRadius: 2,
     textAlign: "left",
-    marginLeft: 10,
+    marginLeft: 20,
     height: 180,
     flexDirection: "column",
     flex: 1,
     justifyContent: "space-between",
-    margin: 16,
+    marginBottom: 16,
   },
 });
 
