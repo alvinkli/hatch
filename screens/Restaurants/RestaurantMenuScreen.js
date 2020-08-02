@@ -29,6 +29,7 @@ const RestaurantMenuScreen = (props) => {
     icon: {
       fontSize: 24,
       paddingEnd: 8,
+      color: Colors.secondary,
     },
     infoText: {
       flexDirection: "row",
@@ -69,13 +70,21 @@ const RestaurantMenuScreen = (props) => {
         <View style={styles.info}>
           <View style={styles.infoText}>
             <Ionicons name="ios-navigate" style={styles.icon}></Ionicons>
-            <AppText text="Location" small />
+            <AppText
+              text="Location"
+              small
+              style={{ color: Colors.secondary }}
+            />
           </View>
         </View>
         <View style={[styles.info, { borderRightWidth: 0 }]}>
           <View style={styles.infoText}>
             <Ionicons name="ios-stopwatch" style={styles.icon}></Ionicons>
-            <AppText text="Find a Table" small />
+            <AppText
+              text="Find a Table"
+              small
+              style={{ color: Colors.secondary }}
+            />
           </View>
         </View>
       </View>
