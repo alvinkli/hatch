@@ -89,8 +89,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     height: 44,
     width: "84%",
-    borderRadius: 16,
-    padding: 10,
+    borderRadius: 20,
+    paddingStart: 16,
     fontSize: 20,
   },
   inputContainer: {
