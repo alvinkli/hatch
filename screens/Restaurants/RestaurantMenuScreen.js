@@ -16,6 +16,8 @@ const RestaurantMenuScreen = (props) => {
     },
     infoContainer: {
       flexDirection: "row",
+      borderBottomWidth: 1,
+      borderBottomColor: Colors.divider,
     },
     info: {
       flex: 1,
