@@ -8,12 +8,12 @@ import firebase from "./../../firebase";
 const BrowseRestaurantsScreen = (props) => {
   const [restaurantsData, setRestaurantsData] = useState([]);
 
-  /*const getData = async () => {
+  const getData = async () => {
     const snapshot = await firebase.firestore().collection("restaurants").get();
     setRestaurantsData(snapshot.docs.map((doc) => doc.data()));
-  };*/
+  };
 
-  const getData = async () => {
+  /*const getData = async () => {
     setRestaurantsData([
       {
         name: "Five Guys",
@@ -23,7 +23,7 @@ const BrowseRestaurantsScreen = (props) => {
         key: "sdfjh6kjsfehka",
       },
     ]);
-  };
+  };*/
 
   useEffect(() => {
     getData();
