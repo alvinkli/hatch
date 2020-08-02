@@ -2,12 +2,11 @@ import React from "react";
 import { StyleSheet, TouchableHighlight, View } from "react-native";
 import Colors from "../constants/Colors";
 import AppText from "./AppText";
-import { Ionicons } from "@expo/vector-icons";
 
-const ArrowButton = (props) => {
+const PriceButton = (props) => {
   const styles = StyleSheet.create({
     button: {
-      paddingVertical: 18,
+      paddingVertical: 12,
       paddingStart: 24,
       paddingEnd: 24,
       flexDirection: "row",
@@ -16,19 +15,19 @@ const ArrowButton = (props) => {
       borderBottomWidth: 1,
       borderBottomColor: Colors.divider,
     },
-    arrow: {
-      fontSize: 20,
-      color: props.accent ? Colors.primary : Colors.text,
-    },
+    itemDesc: { flex: 1, paddingEnd: 12 },
   });
   return (
     <TouchableHighlight onPress={props.onPress} underlayColor="#DDDDDD">
       <View style={styles.button}>
-        <AppText text={props.text} accent={props.accent} />
-        <Ionicons name="ios-arrow-forward" style={styles.arrow}></Ionicons>
+        <View style={styles.itemDesc}>
+          <AppText text={props.text} accent={props.accent} />
+          <AppText text={props.description} accent={!props.accent} small />
+        </View>
+        <AppText text={"$" + props.price} accent={props.accent} />
       </View>
     </TouchableHighlight>
   );
 };
 
-export default ArrowButton;
+export default PriceButton;

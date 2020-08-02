@@ -1,29 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FlatList, View, Text } from "react-native";
 import Divider from "../../components/Divider";
 import RestaurantsSection from "../../components/RestaurantsSection";
 
 import firebase from "./../../firebase";
 
-const getData = async () => {
-  const db = firebase.firestore();
-  const user = await db
-    .collection("characters")
-    .doc("mario")
-    .get()
-    .then((documentSnapshot) => {
-      if (documentSnapshot.exists) {
-        console.log("User data: ", documentSnapshot.data());
-      }
-    });
-};
-
 const BrowseRestaurantsScreen = (props) => {
+  const [restaurantsData, setRestaurantsData] = useState([]);
+
+  /*const getData = async () => {
+    const snapshot = await firebase.firestore().collection("restaurants").get();
+    setRestaurantsData(snapshot.docs.map((doc) => doc.data()));
+  };*/
+
+  const getData = async () => {
+    setRestaurantsData([
+      {
+        name: "Five Guys",
+        location: "123 Main St.",
+        image: "",
+        rating: 4.6,
+        key: "sdfjh6kjsfehka",
+      },
+    ]);
+  };
+
   useEffect(() => {
     getData();
   }, []);
 
-  const restaurantsData = [];
   const sectionsData = [
     {
       key: "1",
@@ -34,13 +39,6 @@ const BrowseRestaurantsScreen = (props) => {
     },
     {
       key: "2",
-      name: "Nearby",
-      restaurants: restaurantsData.filter(
-        (restaurant) => restaurant.distance < 1
-      ),
-    },
-    {
-      key: "3",
       name: "Newly Added",
       restaurants: restaurantsData,
     },
