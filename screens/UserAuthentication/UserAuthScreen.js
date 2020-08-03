@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image, StyleSheet } from "react-native";
+import { View } from "react-native";
 import LargeButton from "../../components/LargeButton";
 import AppText from "../../components/AppText";
 import Colors from "../../constants/Colors";
