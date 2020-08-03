@@ -33,7 +33,6 @@ export default function App() {
 
   const login = () => {
     setIsLoggedIn(true);
-    console.log(isLoggedIn);
   };
 
   const MyTheme = {
