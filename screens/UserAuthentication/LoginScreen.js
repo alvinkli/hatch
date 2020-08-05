@@ -15,7 +15,8 @@ import Logo from "../../components/Logo";
 import AppText from "../../components/AppText";
 import Colors from "../../constants/Colors";
 import CloseButton from "../../components/CloseButton";
-import * as authActions from "../../store/actions/auth";
+import * as firebase from "firebase";
+//import * as authActions from "../../store/actions/auth";
 
 const FORM_INPUT_UPDATE = "FORM_INPUT_UPDATE";
 
@@ -45,7 +46,7 @@ const formReducer = (state, action) => {
 const LoginScreen = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
 
   const [formState, dispatchFormState] = useReducer(formReducer, {
     inputValues: {
@@ -65,21 +66,28 @@ const LoginScreen = (props) => {
     }
   }, [error]);
 
-  const loginHandler = async () => {
+  const loginHandler = () => {
     setError(null);
     setIsLoading(true);
-    try {
-      await dispatch(
-        authActions.login(
-          formState.inputValues.email,
-          formState.inputValues.password
-        )
-      );
-      props.route.params.login();
-    } catch (err) {
-      setError(err.message);
-      setIsLoading(false);
-    }
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(
+        formState.inputValues.email,
+        formState.inputValues.password
+      )
+      .then(() => {
+        console.log("User account signed in!");
+      })
+      .catch((err) => {
+        if (err.code === "auth/user-not-found") {
+          setError("User Not Found!");
+        }
+
+        if (err.code === "auth/wrong-password") {
+          setError("Incorrect Password!");
+        }
+        setIsLoading(false);
+      });
   };
 
   const inputChangeHandler = useCallback(

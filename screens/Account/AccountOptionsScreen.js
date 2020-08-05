@@ -1,7 +1,7 @@
 import React from "react";
 import { ScrollView } from "react-native";
 import ArrowButton from "../../components/ArrowButton";
-import { Colors } from "react-native/Libraries/NewAppScreen";
+import * as firebase from "firebase";
 
 const AccountOptionsScreen = (props) => {
   return (
@@ -26,7 +26,11 @@ const AccountOptionsScreen = (props) => {
         text="Help"
         onPress={() => props.navigation.navigate("HelpScreen")}
       />
-      <ArrowButton text="Logout" accent={true} />
+      <ArrowButton
+        text="Logout"
+        accent={true}
+        onPress={() => firebase.auth().signOut()}
+      />
     </ScrollView>
   );
 };
