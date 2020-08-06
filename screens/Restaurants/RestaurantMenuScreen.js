@@ -80,8 +80,8 @@ const RestaurantMenuScreen = (props) => {
       <Image
         style={styles.headerImage}
         source={
-          props.image
-            ? { uri: props.image }
+          props.route.params.image
+            ? { uri: props.route.params.image }
             : require("../../assets/default.jpeg")
         }
       />

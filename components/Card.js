@@ -26,7 +26,7 @@ const Card = (props) => {
       borderBottomLeftRadius: 15,
       borderBottomRightRadius: 15,
       borderColor: "#000000",
-      backgroundColor: Colors.primary,
+      backgroundColor: "#EEEEEE",
     },
     container: {
       shadowColor: "#111111",
@@ -57,7 +57,7 @@ const Card = (props) => {
         <View style={styles.text}>
           <AppText
             text={props.restaurantName + " (" + props.location + ")"}
-            style={{ color: "white", fontFamily: "Montserrat-Bold" }}
+            style={{ color: "black", fontFamily: "Montserrat-Regular" }}
             small
           />
         </View>

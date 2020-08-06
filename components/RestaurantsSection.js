@@ -10,6 +10,7 @@ const RestaurantsSection = (props) => {
         onPress={() =>
           props.navigation.navigate("RestaurantMenuScreen", {
             key: itemData.item.key,
+            image: itemData.item.image,
           })
         }
         restaurantName={itemData.item.name}
