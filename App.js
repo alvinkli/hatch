@@ -1,5 +1,5 @@
 import "react-native-gesture-handler";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
@@ -12,6 +12,7 @@ import MainNav from "./navigation/MainNav";
 import Colors from "./constants/Colors";
 import restaurantsReducer from "./store/reducers/restaurants";
 import authReducer from "./store/reducers/auth";
+import * as firebase from "firebase";
 
 const rootReducer = combineReducers({
   restaurants: restaurantsReducer,
@@ -28,12 +29,9 @@ const fetchFonts = () => {
 };
 
 export default function App() {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const login = () => {
-    setIsLoggedIn(true);
-  };
+  // Set an initializing state whilst Firebase connects
+  const [initializing, setInitializing] = useState(true);
+  const [user, setUser] = useState();
 
   const MyTheme = {
     dark: false,
@@ -46,17 +44,30 @@ export default function App() {
     },
   };
 
-  if (!isLoaded) {
-    return (
-      <AppLoading startAsync={fetchFonts} onFinish={() => setIsLoaded(true)} />
-    );
+  // Handle user state changes
+  function onAuthStateChanged(user) {
+    setUser(user);
+    if (initializing) setInitializing(false);
   }
 
-  if (!isLoggedIn) {
+  useEffect(() => {
+    const subscriber = firebase.auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; // unsubscribe on unmount
+  }, []);
+
+  if (initializing)
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setInitializing(false)}
+      />
+    );
+
+  if (user === null) {
     return (
       <Provider store={store}>
         <NavigationContainer theme={MyTheme}>
-          <UserAuthNav login={login} />
+          <UserAuthNav />
         </NavigationContainer>
       </Provider>
     );

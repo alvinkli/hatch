@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, Button, Image, StyleSheet } from "react-native";
 import Divider from "../../components/Divider";
 import ArrowButton from "../../components/ArrowButton";
@@ -8,7 +8,28 @@ import { FlatList } from "react-native-gesture-handler";
 import Colors from "../../constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
 
+import firebase from "./../../firebase";
+
 const RestaurantMenuScreen = (props) => {
+  const [catagoriesData, setCatagoriesData] = useState([]);
+
+  const getData = async () => {
+    const snapshot = await firebase
+      .firestore()
+      .collection("restaurants")
+      .doc(props.route.params.key)
+      .get();
+    setCatagoriesData(
+      snapshot.data().catagories.map((catagory, index) => {
+        return { name: catagory, key: index.toString() };
+      })
+    );
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   styles = StyleSheet.create({
     headerImage: {
       width: "100%",
@@ -39,16 +60,15 @@ const RestaurantMenuScreen = (props) => {
     },
   });
 
-  const sectionsData = ["Small Plates", "Drinks", "Main Course", "Dessert"];
-
   const renderSection = (itemData) => {
     return (
       <ArrowButton
-        text={itemData.item}
+        text={itemData.item.name}
         accent
         onPress={() =>
           props.navigation.navigate("FoodListScreen", {
-            catagory: itemData.item,
+            key: props.route.params.key,
+            category: itemData.item.name,
           })
         }
       />
@@ -65,7 +85,6 @@ const RestaurantMenuScreen = (props) => {
             : require("../../assets/default.jpeg")
         }
       />
-      {/*<AppText text={props.route.params.key} small />*/}
       <View style={styles.infoContainer}>
         <View style={styles.info}>
           <View style={styles.infoText}>
@@ -92,7 +111,7 @@ const RestaurantMenuScreen = (props) => {
         <AppText text="Menu" padding medium />
       </View>
       <Divider />
-      <FlatList data={sectionsData} renderItem={renderSection} />
+      <FlatList data={catagoriesData} renderItem={renderSection} />
     </View>
   );
 };

@@ -15,7 +15,8 @@ import Logo from "../../components/Logo";
 import AppText from "../../components/AppText";
 import Colors from "../../constants/Colors";
 import CloseButton from "../../components/CloseButton";
-import * as authActions from "../../store/actions/auth";
+import * as firebase from "firebase";
+//import * as authActions from "../../store/actions/auth";
 
 const FORM_INPUT_UPDATE = "FORM_INPUT_UPDATE";
 
@@ -45,7 +46,7 @@ const formReducer = (state, action) => {
 const SignUpScreen = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
 
   const [formState, dispatchFormState] = useReducer(formReducer, {
     inputValues: {
@@ -69,23 +70,27 @@ const SignUpScreen = (props) => {
     }
   }, [error]);
 
-  const signupHandler = async () => {
+  const signupHandler = () => {
     setError(null);
     setIsLoading(true);
-    try {
-      await dispatch(
-        authActions.signup(
-          //formState.inputValues.firstName,
-          //formState.inputValues.lastName,
-          formState.inputValues.email,
-          formState.inputValues.password
-        )
-      );
-      props.route.params.login();
-    } catch (err) {
-      setError(err.message);
-      setIsLoading(false);
-    }
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(
+        formState.inputValues.email,
+        formState.inputValues.password
+      )
+      .then(() => {
+        console.log("User account created & signed in!");
+      })
+      .catch((err) => {
+        if (err.code === "auth/email-already-in-use") {
+          setError("Email Already In Use!");
+        }
+        if (err.code === "auth/invalid-email") {
+          setError("Invalid Email!");
+        }
+        setIsLoading(false);
+      });
   };
 
   const inputChangeHandler = useCallback(

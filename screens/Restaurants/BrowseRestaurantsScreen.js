@@ -10,20 +10,14 @@ const BrowseRestaurantsScreen = (props) => {
 
   const getData = async () => {
     const snapshot = await firebase.firestore().collection("restaurants").get();
-    setRestaurantsData(snapshot.docs.map((doc) => doc.data()));
+    setRestaurantsData(
+      snapshot.docs.map((doc) => {
+        const obj = doc.data();
+        obj.key = doc.id;
+        return obj;
+      })
+    );
   };
-
-  /*const getData = async () => {
-    setRestaurantsData([
-      {
-        name: "Five Guys",
-        location: "123 Main St.",
-        image: "",
-        rating: 4.6,
-        key: "sdfjh6kjsfehka",
-      },
-    ]);
-  };*/
 
   useEffect(() => {
     getData();
