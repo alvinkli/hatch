@@ -47,7 +47,12 @@ const FoodListScreen = (props) => {
   return (
     <View>
       <View>
-        <AppText text={props.route.params.category} padding medium />
+        <AppText
+          text={props.route.params.category}
+          padding
+          medium
+          style={{ marginBottom: 16 }}
+        />
       </View>
       <Divider />
       <FlatList data={menuData} renderItem={renderSection} />
