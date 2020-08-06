@@ -46,6 +46,7 @@ export default function App() {
 
   // Handle user state changes
   function onAuthStateChanged(user) {
+    console.log(user);
     setUser(user);
     if (initializing) setInitializing(false);
   }
@@ -63,7 +64,7 @@ export default function App() {
       />
     );
 
-  if (user === false) {
+  if (user === null) {
     return (
       <Provider store={store}>
         <NavigationContainer theme={MyTheme}>
