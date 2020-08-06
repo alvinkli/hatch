@@ -63,7 +63,7 @@ export default function App() {
       />
     );
 
-  if (!user) {
+  if (user === false) {
     return (
       <Provider store={store}>
         <NavigationContainer theme={MyTheme}>
