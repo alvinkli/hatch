@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, Button, Image, StyleSheet } from "react-native";
 import Divider from "../../components/Divider";
 import PriceButton from "../../components/PriceButton";
@@ -6,22 +6,32 @@ import AppText from "../../components/AppText";
 import { FlatList } from "react-native-gesture-handler";
 import Colors from "../../constants/Colors";
 
+import firebase from "./../../firebase";
+
 const FoodListScreen = (props) => {
-  const sectionsData = [
-    {
-      name: "Hamburger",
-      desc:
-        "A medium-rare hamburger with cheese, tomatoes, lettuce, and onions.",
-      price: 8,
-    },
-    {
-      name: "Pasta",
-      desc: "Penne pasta served with a tomato sauce and large meatballs.s",
-      price: 9,
-    },
-    { name: "Pizza", desc: "A 12-inch personal pizza with cheese.", price: 12 },
-    { name: "Salad", desc: "Chef's salad.", price: 5 },
-  ];
+  const [menuData, setMenuData] = useState([]);
+
+  const getData = async () => {
+    const snapshot = await firebase
+      .firestore()
+      .collection("restaurants")
+      .doc(props.route.params.key)
+      .collection("menu")
+      .where("category", "array-contains", props.route.params.category)
+      .get();
+    setMenuData(
+      snapshot.docs.map((doc) => {
+        const obj = doc.data();
+        obj.key = doc.id;
+        console.log(obj);
+        return obj;
+      })
+    );
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   const renderSection = (itemData) => {
     return (
@@ -37,10 +47,10 @@ const FoodListScreen = (props) => {
   return (
     <View>
       <View>
-        <AppText text={props.route.params.catagory} padding medium />
+        <AppText text={props.route.params.category} padding medium />
       </View>
       <Divider />
-      <FlatList data={sectionsData} renderItem={renderSection} />
+      <FlatList data={menuData} renderItem={renderSection} />
     </View>
   );
 };
