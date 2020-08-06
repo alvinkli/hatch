@@ -10,7 +10,6 @@ const AppText = (props) => {
       fontFamily: props.bold ? "Montserrat-Bold" : "Montserrat-Regular",
       marginLeft: props.padding ? 16 : 0,
       marginTop: props.padding ? 16 : 0,
-      marginBottom: props.padding ? 16 : 0,
     },
   });
   return <Text style={[styles.text, props.style]}>{props.text}</Text>;

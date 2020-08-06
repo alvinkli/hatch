@@ -39,6 +39,7 @@ const Card = (props) => {
       flexDirection: "column",
       flex: 1,
       justifyContent: "space-between",
+      marginTop: 16,
       marginBottom: 16,
     },
   });
