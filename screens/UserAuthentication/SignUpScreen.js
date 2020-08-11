@@ -80,7 +80,31 @@ const SignUpScreen = (props) => {
         formState.inputValues.password
       )
       .then(() => {
-        console.log("User account created & signed in!");
+        // firebase
+        //   .auth()
+        //   .currentUser.updateProfile({
+        //     displayName:
+        //       formState.inputValues.firstName +
+        //       " " +
+        //       formState.inputValues.lastName,
+        //   })
+        //   .then(() => {
+        //     console.log("User profile updated!");
+        //   })
+        //   .catch(() => {
+        //     console.log("There was an error");
+        //   });
+        firebase
+          .firestore()
+          .collection("users")
+          .add({
+            firstName: formState.inputValues.firstName,
+            lastName: formState.inputValues.lastName,
+            //phoneNumber: formState.inputValues.phoneNumber
+          })
+          .then(() => {
+            console.log("User added to database!");
+          });
       })
       .catch((err) => {
         if (err.code === "auth/email-already-in-use") {

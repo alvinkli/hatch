@@ -18,12 +18,12 @@ export default function AccountNav() {
       <AccountStack.Screen
         name="AccountOptionsScreen"
         component={AccountOptionsScreen}
-        options={{ title: "Account" }}
+        options={{ title: "Hatch" }}
       />
       <AccountStack.Screen
         name="AccountDetailsScreen"
         component={AccountDetailsScreen}
-        options={{ title: "Account" }}
+        options={{ title: "Account Details" }}
       />
       <AccountStack.Screen
         name="HelpScreen"

@@ -61,9 +61,9 @@ const Input = (props) => {
     dispatch({ type: INPUT_BLUR });
   };
 
-  return (
-    <View>
-      <View style={styles.inputContainer}>
+  if (props.plain) {
+    return (
+      <View>
         <TextInput
           style={styles.input}
           value={inputState.value}
@@ -72,13 +72,27 @@ const Input = (props) => {
           {...props}
         />
       </View>
-      {!inputState.isValid && inputState.touched && (
-        <View style={styles.errorContainer}>
-          <AppText text={props.errorMessage} />
+    );
+  } else {
+    return (
+      <View>
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.input}
+            value={inputState.value}
+            onChangeText={textChangeHandler}
+            onBlur={lostFocusHandler}
+            {...props}
+          />
         </View>
-      )}
-    </View>
-  );
+        {!inputState.isValid && inputState.touched && (
+          <View style={styles.errorContainer}>
+            <AppText text={props.errorMessage} />
+          </View>
+        )}
+      </View>
+    );
+  }
 };
 
 const styles = StyleSheet.create({
